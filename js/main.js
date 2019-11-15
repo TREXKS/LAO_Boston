@@ -1,59 +1,62 @@
-/* main JS file */
+
+var width = 700,
+    height = 700;
+
+var svg = d3.select("#vizBubbleChart")
+    .append("svg")
+    .attr("class", "bubble")
+    .attr("width", width)
+    .attr("height", height);
 
 d3.csv("data/Boston_crime_data.csv", function(data) {
 
-    var dataByType = d3.nest()
+    var dataByDistrict = d3.nest()
+        .key(function(d) { return d.DISTRICT; })
+        .key(function(d) { return d.YEAR; })
         .key(function(d) { return d.OFFENSE_CODE_GROUP; })
         .rollup(function(leaves) { return leaves.length; })
         .entries(data);
 
-    var dataByDistrict = d3.nest()
-        .key(function(d) { return d.OFFENSE_CODE_GROUP })
-        .key(function(d) { return d.DISTRICT; })
-        .rollup(function(leaves) { return leaves.length.toString(); })
-        .entries(data);
 
-    console.log(dataByType);
-    console.log(dataByDistrict);
 
-    createVis(dataByType, "typecounts", 5000, 0);
-
-$(".typecounts").on("click", function() {
-    var id = $(this).attr("id");
-    d3.select(".bubbledistrictcounts").remove();
-    var crimeType = dataByDistrict.filter(function(d) {
-        return (d.key == id);
+    var openingDistrict = document.getElementById("bubbleDistricts").value;
+    var openingDate = document.getElementById("bubbleChartYear").value;
+    var tempData = dataByDistrict.filter(function(d) {
+        return (d.key == openingDistrict);
+    });
+    var finalData = tempData[0].values.filter(function(d) {
+        return (d.key == openingDate);
     });
 
-    createVis(crimeType[0].values, "districtcounts", 0, 0);
+    createVis(finalData[0].values, "districtcounts", 80);
 
+
+    $(".bubblechange").change(function() {
+        openingDistrict = $("#bubbleDistricts").children("option:selected").val();
+        openingDate = $("#bubbleChartYear").children("option:selected").val();
+        var tempData = dataByDistrict.filter(function(d) {
+            return (d.key == openingDistrict);
+        });
+        var finalData = tempData[0].values.filter(function(d) {
+            return (d.key == openingDate);
+        });
+        d3.selectAll(".districtcounts").remove();
+
+        createVis(finalData[0].values, "districtcounts", 80);
+    });
 
 });
 
-
-});
-
-
-function createVis(data, classname, limit, startpoint) {
+function createVis(data, classname, limit) {
 
     var bubbleData = {
         "children": data
     };
 
     // General bubble layout adapted from https://bl.ocks.org/alokkshukla/3d6be4be0ef9f6977ec6718b2916d168
-    var diameter = 800;
-
     var bubble = d3.pack(bubbleData)
-        .size([diameter, diameter])
+        .size([width, height])
         .padding(1.5);
-
-    var svg = d3.select("#bubblechart")
-        .append("svg")
-        .attr("class", "bubble" + classname)
-        .attr("width", diameter)
-        .attr("height", diameter)
-        .append("g")
-        .attr("transform", "translate(" + startpoint + ", 0)");
 
     var nodes = d3.hierarchy(bubbleData)
         .sum(function(d) {
@@ -75,11 +78,13 @@ function createVis(data, classname, limit, startpoint) {
             return "translate(" + d.x + ", " + d.y + ")";
         });
 
+
+
     var tip = d3.tip()
         .attr("class", "tooltip")
         .offset([-5, 0])
         .html(function(d) {
-            if (d.data.key && d.data.value) {
+            if ((d.data.key != "") && d.data.value) {
                 return d.data.key + ": " + d3.format(",")(d.data.value);
             }
             else {
@@ -102,11 +107,10 @@ function createVis(data, classname, limit, startpoint) {
         .style("text-anchor", "middle")
         .text(function(d) {
             if (d.data.value > limit) {
-                return d.data.key;
+               return d.data.key;
             }
             else return "";
         })
-        .attr("font-family", "sans-serif")
         .attr("font-size", function(d){
             return d.r/5;
         })
@@ -121,14 +125,11 @@ function createVis(data, classname, limit, startpoint) {
             }
             else return "";
         })
-        .attr("font-family",  "Gill Sans", "Gill Sans MT")
         .attr("font-size", function(d){
             return d.r/5;
         })
         .attr("fill", "black");
 
-    node.exit().remove();
-
     d3.select(self.frameElement)
-        .style("height", diameter + "px");
+        .style("height", height + "px");
 }
