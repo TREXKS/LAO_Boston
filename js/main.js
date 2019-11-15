@@ -2,12 +2,14 @@
 var width = 700,
     height = 700;
 
+// Create SVG
 var svg = d3.select("#vizBubbleChart")
     .append("svg")
     .attr("class", "bubble")
     .attr("width", width)
     .attr("height", height);
 
+// Get data in usable format and listen for changes
 d3.csv("data/Boston_crime_data.csv", function(data) {
 
     var dataByDistrict = d3.nest()
@@ -17,37 +19,32 @@ d3.csv("data/Boston_crime_data.csv", function(data) {
         .rollup(function(leaves) { return leaves.length; })
         .entries(data);
 
+    showSelectedData(dataByDistrict);
 
+    $(".bubblechange").change(function() {
+        showSelectedData(dataByDistrict);
+    });
 
-    var openingDistrict = document.getElementById("bubbleDistricts").value;
-    var openingDate = document.getElementById("bubbleChartYear").value;
-    var tempData = dataByDistrict.filter(function(d) {
+});
+
+// Use selections from dropdown to update bubbles
+function showSelectedData (data) {
+    var openingDistrict = $("#bubbleDistricts").children("option:selected").val();
+    var openingDate = $("#bubbleChartYear").children("option:selected").val();
+    var tempData = data.filter(function(d) {
         return (d.key == openingDistrict);
     });
     var finalData = tempData[0].values.filter(function(d) {
         return (d.key == openingDate);
     });
+    d3.selectAll(".districtcounts").remove();
 
-    createVis(finalData[0].values, "districtcounts", 80);
+    createVis(finalData[0].values, 50);
 
+}
 
-    $(".bubblechange").change(function() {
-        openingDistrict = $("#bubbleDistricts").children("option:selected").val();
-        openingDate = $("#bubbleChartYear").children("option:selected").val();
-        var tempData = dataByDistrict.filter(function(d) {
-            return (d.key == openingDistrict);
-        });
-        var finalData = tempData[0].values.filter(function(d) {
-            return (d.key == openingDate);
-        });
-        d3.selectAll(".districtcounts").remove();
-
-        createVis(finalData[0].values, "districtcounts", 80);
-    });
-
-});
-
-function createVis(data, classname, limit) {
+// Create bubble chart
+function createVis(data, limit) {
 
     var bubbleData = {
         "children": data
@@ -63,6 +60,7 @@ function createVis(data, classname, limit) {
             return d.value;
         });
 
+    // Establish nodes
     var node = svg.selectAll(".node")
         .data(bubble(nodes).descendants())
         .enter()
@@ -70,7 +68,7 @@ function createVis(data, classname, limit) {
             return !d.children
         })
         .append("g")
-        .attr("class", "node " + classname)
+        .attr("class", "node districtcounts")
         .attr("id", function(d) {
             return d.data.key;
         })
@@ -78,8 +76,7 @@ function createVis(data, classname, limit) {
             return "translate(" + d.x + ", " + d.y + ")";
         });
 
-
-
+    // Establish tooltip
     var tip = d3.tip()
         .attr("class", "tooltip")
         .offset([-5, 0])
@@ -95,6 +92,7 @@ function createVis(data, classname, limit) {
     // Call tooltip
     svg.call(tip);
 
+    // Append circle to each node
     node.append("circle")
         .attr("r", function(d) {
             return d.r;
@@ -102,6 +100,7 @@ function createVis(data, classname, limit) {
         .on("mouseover", tip.show)
         .on("mouseout", tip.hide);
 
+    // Append name and count to each node
     node.append("text")
         .attr("dy", ".2em")
         .style("text-anchor", "middle")
@@ -112,7 +111,10 @@ function createVis(data, classname, limit) {
             else return "";
         })
         .attr("font-size", function(d){
-            return d.r/5;
+            if (count(d.data.key) > 0) {
+                return d.r/8;
+            }
+            else return d.r/5;
         })
         .attr("fill", "black");
 
@@ -132,4 +134,12 @@ function createVis(data, classname, limit) {
 
     d3.select(self.frameElement)
         .style("height", height + "px");
+}
+
+// Count number of spaces (for handling long labels)
+function count(string) {
+    if (string.match(/ /gi)) {
+        return string.match(/ /gi).length;
+    }
+    else return 0;
 }
