@@ -5,6 +5,10 @@
 	height = Math.min(width, window.innerHeight - margin.top - margin.bottom - 20);
 
 	var offset = 0;
+
+
+
+	// HARD CODING DATA - change to dynamic
 	var data = [
 
 	[{axis:"Jan",value: 31549},
@@ -134,7 +138,6 @@ var svg = d3.select(id).append("svg")
 var g = svg.append("g")
 .attr("transform", "translate(" + (cfg.w/2 + cfg.margin.left) + "," + (cfg.h/2 + cfg.margin.top) + ")");
 
-////////// Glow filter for some extra pizzazz ///////////
 
 //Filter for the outside glow
 var filter = g.append('defs').append('filter').attr('id','glow'),
@@ -154,7 +157,7 @@ axisGrid.selectAll(".levels")
 .append("circle")
 .attr("class", "gridCircle")
 .attr("r", function(d, i){return radius/cfg.levels*d;})
-.style("fill", "#CDCDCD")
+.style("fill", "#000000")
 .style("stroke", "#CDCDCD")
 .style("fill-opacity", cfg.opacityCircles)
 .style("filter" , "url(#glow)");
@@ -167,8 +170,8 @@ axisGrid.selectAll(".axisLabel")
 .attr("x", 4)
 .attr("y", function(d){return -d*radius/cfg.levels;})
 .attr("dy", "0.4em")
-.style("font-size", "10px")
-.attr("fill", "#737373")
+.style("font-size", "15px")
+.attr("fill", "#ffffff")
 .text(function(d,i) { return Format(maxValue * d/cfg.levels); });
 
 
@@ -191,7 +194,7 @@ axis.append("line")
 //Append the labels at each axis
 axis.append("text")
 .attr("class", "legend")
-.style("font-size", "11px")
+.style("font-size", "12px")
 .attr("text-anchor", "middle")
 .attr("dy", "0.35em")
 .attr("x", function(d, i){ return rScale(maxValue * cfg.labelFactor) * Math.cos(angleSlice*i  - Math.PI/2 - offset); })
@@ -250,8 +253,6 @@ blobWrapper.append("path")
 .style("fill", "none")
 .style("filter" , "url(#glow)");
 
-
-//////// Append invisible circles for tooltip ///////////
 
 //Wrapper for the invisible circles on top
 var blobCircleWrapper = g.selectAll(".radarCircleWrapper")

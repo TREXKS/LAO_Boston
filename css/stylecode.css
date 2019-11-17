@@ -1,11 +1,11 @@
 
 .legend {
 	font-family: 'Raleway', sans-serif;
-	fill: #333333;
+	fill: white;
 }
 
 .tooltip {
-	fill: #333333;
+	fill: white;
 }
 
 .container {
@@ -13,6 +13,7 @@
     display: flex;
     justify-content: center;
     align-items: center;
+		color: white;
 }
 
 
@@ -23,5 +24,6 @@
     align-items: center;
 		margin-bottom: 1%;
 		margin-top: 2%;
+		color: white;
 
 }
