@@ -39,7 +39,7 @@ function showSelectedData (data) {
     });
     d3.selectAll(".districtcounts").remove();
 
-    createVis(finalData[0].values, 50);
+    createVis(finalData[0].values, 100);
 
 }
 
@@ -97,8 +97,14 @@ function createVis(data, limit) {
         .attr("r", function(d) {
             return d.r;
         })
-        .on("mouseover", tip.show)
-        .on("mouseout", tip.hide);
+        .on("mouseover", function(d) {
+            tip.show(d);
+            d3.select(this).attr("fill", "#00008B");
+        })
+        .on("mouseout", function(d) {
+            tip.hide(d);
+            d3.select(this).attr("fill", "#ff5252");
+        });
 
     // Append name and count to each node
     node.append("text")
@@ -116,7 +122,7 @@ function createVis(data, limit) {
             }
             else return d.r/5;
         })
-        .attr("fill", "black");
+        .attr("fill", "white");
 
     node.append("text")
         .attr("dy", "1.3em")
@@ -130,7 +136,7 @@ function createVis(data, limit) {
         .attr("font-size", function(d){
             return d.r/5;
         })
-        .attr("fill", "black");
+        .attr("fill", "white");
 
     d3.select(self.frameElement)
         .style("height", height + "px");
