@@ -63,12 +63,12 @@ function showSelectedData (data) {
         return (d.key != "Total");
     });
 
-    createVis(finalData);
+    createBubbleVis(finalData);
 
 }
 
 // Create bubble chart
-function createVis(data) {
+function createBubbleVis(data) {
 
     var bubbleData = {
         "children": data
@@ -112,7 +112,7 @@ function createVis(data) {
         .attr("cy", function(d){ return d.y; })
         .style("fill", "#fff")
         .transition(t)
-        .style("fill", "#45b29d")
+        .style("fill", "#fb9a99")
         .attr("r", function(d){ return d.r });
 
     title.enter().append("text")
@@ -138,14 +138,12 @@ function createVis(data) {
     // UPDATE elements
     circle
         .transition(t)
-        .style("fill", "#3a403d")
         .filter(function(d) {
             return !d.children
         })
         .attr("r", function(d){ return d.r; })
         .attr("cx", function(d){ return d.x; })
-        .attr("cy", function(d){ return d.y; })
-        .style("fill", "#45b29d");
+        .attr("cy", function(d){ return d.y; });
 
     title
         .transition(t)
@@ -173,80 +171,19 @@ function createVis(data) {
         .transition(t)
         .attr("opacity", 1e-6)
         .remove();
+}
 
-
-
+// Possibly have different colors for each crime category?
 /*
-
-
-        .enter()
-        .filter(function(d) {
-            return !d.children
-        })
-        .append("g")
-        .attr("class", "node districtcounts")
-        .attr("id", function(d) {
-            return d.data.key;
-        })
-        .attr("transform", function(d) {
-            return "translate(" + d.x + ", " + d.y + ")";
-        });
-
-    // Establish tooltip
-    var tip = d3.tip()
-        .attr("class", "tooltip")
-        .offset([-5, 0])
-        .html(function(d) {
-            if ((d.data.key != "") && d.data.value) {
-                return d.data.key + ": " + d3.format(",")(d.data.value);
-            }
-            else {
-                return "No data";
-            }
-        });
-
-    // Call tooltip
-    svgBubble.call(tip);
-
-    // Append circle to each node
-    node.append("circle")
-        .attr("r", function(d) {
-            return d.r;
-        })
-        .on("mouseover", function(d) {
-            tip.show(d);
-            d3.select(this).attr("fill", "#00008B");
-        })
-        .on("mouseout", function(d) {
-            tip.hide(d);
-            d3.select(this).attr("fill", "#ff5252");
-        });
-
-    // Append name and count to each node
-    node.append("text")
-        .attr("dy", ".2em")
-        .style("text-anchor", "middle")
-        .text(function(d) {
-            return d.data.key;
-        })
-        .attr("font-size", function(d){
-            return d.r/5;
-        })
-        .attr("fill", "white");
-
-    node.append("text")
-        .attr("dy", "1.3em")
-        .style("text-anchor", "middle")
-        .text(function(d) {
-            return d3.format(",")(d.data.value);
-        })
-        .attr("font-size", function(d){
-            return d.r/5;
-        })
-        .attr("fill", "white");
-
-    d3.select(self.frameElement)
-        .style("height", bubbleHeight + "px");
+function returnColor(category) {
+    switch(category) {
+        case 'Assaults': return '#fb9a99';
+        case 'Burglaries': return '#33a02c';
+        case 'Homicides': return '#e31a1c';
+        case 'Robberies': return '#a6cee3';
+        case 'Sex Crimes': return '#1f78b4';
+        case 'Vandalism': return '#b2df8a';
+    }
+}
 
  */
-}
