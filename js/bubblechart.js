@@ -34,7 +34,7 @@ d3.csv("data/Boston_crime_data.csv", function(data) {
        else showSpecificData(dataByType, dataDisplayed);
     });
 
-    // Show specific data categories when bubbles are clicked
+    // Show specific subcategories when bubbles are clicked
     $(document).on("click", "circle", function() {
 
         // Get class of circles
@@ -50,7 +50,7 @@ d3.csv("data/Boston_crime_data.csv", function(data) {
 
 });
 
-// Use selections from dropdown to update bubbles
+// Use selections to update broad crime category counts
 function showSelectedData(data) {
     var selectedDistrict = $("#bubbleDistricts").children("option:selected").val();
     var selectedDate = $("#bubbleChartYear").children("option:selected").val();
@@ -68,6 +68,7 @@ function showSelectedData(data) {
 
 }
 
+// Use selections to update subcategories within broader crime categories
 function showSpecificData(data, type) {
     var finalData;
     var selectedDistrict = $("#bubbleDistricts").children("option:selected").val();
@@ -153,6 +154,7 @@ function createBubbleVis(data, classname) {
         .attr("y", function(d){ return d.y; })
         .text(function(d){ return d.data.key; })
         .transition(t)
+        .attr("fill", "#fff")
         .attr("opacity", 1);
 
     count.enter().append("text")
@@ -163,6 +165,7 @@ function createBubbleVis(data, classname) {
         .attr("y", function(d){ return d.y + 20; })
         .text(function(d){ return d.data.value; })
         .transition(t)
+        .attr("fill", "#fff")
         .attr("opacity", 1);
 
     // UPDATE elements
@@ -206,14 +209,14 @@ function createBubbleVis(data, classname) {
 // Possibly have different colors for each crime category?
 function setColor(id, className) {
     if (id == 'Assaults' || className == 'Assaults') {
-        return '#fb9a99';
+        return '#F08080';
     } else if (id == 'Burglaries' || className == 'Burglaries') {
-        return '#a6cee3';
+        return '#0EBFE9';
     } else if (id == 'Homicides' || className == 'Homicides') {
-        return '#FF4040';
+        return '#FC1501';
     } else if (id == 'Robberies' || className == 'Robberies') {
-        return '#0099CC';
+        return '#4682B4';
     } else if (id == 'Rape' || className == 'Rape') {
-        return '#9F5F9F';
-    } else return '#D8BFD8';
+        return '#BA55D3';
+    } else return '#4DBD33';
 }
