@@ -85,3 +85,29 @@ h1,h4{
 body{
     
 }
+
+#vizSmBarCharts{
+    border:none;
+    background-color:#080808;
+    color:white;
+}
+
+#vizSmBarCharts .rowGroup text {
+    fill:whitesmoke;
+}
+#vizSmBarCharts .rowGroup .tick text {
+    fill:grey;
+}
+.tick line{
+    display:none
+}
+.brushAxis{
+    font-family:'Roboto-Regular';
+    font-size:1em
+}
+.brushAxis .tick line{
+    display:block;
+    stroke:white;
+        
+    
+}

@@ -95,19 +95,27 @@
         
         <!-- TIME OF DAY Small Multiples -->
         <div class="row"> 
-
-            <div class="col-lg-6 left">            
-                <div class="visualization smBarCharts" id="vizSmBarCharts"></div>
-            </div>   
+            <div class="visualization smBarCharts" id="vizSmBarCharts"></div>
+            <div class="user-control" >
+                        <select id="barsControl1" class="form-control">
+                          <option value="city_percentage">% of Incidents Citywide</option>
+                          <option value="perCapita_average">Per Capita Variation from Average </option>
+                        </select>
+                    </div>
+        </div>   
             
-            <div class="col-lg-6 right">            
+        <div class="row">  
                  <section class="textBlock" id="textTime">
                     <h4> Time of Day:</h4>
-                     <h6>Types of Crimes</h6>
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
+                     <h6>Wrong Place at the Wrong Time</h6>
+                    The<strong> City of Boston</strong> is broken up 12 police districts. Each has its own set of challenges for the local police to face. In the above visual we have broken down the 6 major types of crime by district. But this doesn't tell the whole story.
+                    <br><br>
+                    We know where crimes are taking place, but when are these crimes occuring? Are some areas safer at night, in the morning, etc.? By interacting with the data above you can see how different crimes rise and fall throughout the city during the day.
+                    <br><br>
+                    What we found is this...Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
+                     
                 </section>
             
-            </div>
         </div>
 
         
@@ -227,6 +235,7 @@
 	<script src="js/d3.min.js"></script>
 	<script src="js/d3-tip.js"></script>
     <script src="https://unpkg.com/d3-scale-cluster@1.3.1/dist/d3-scale-cluster.min.js"></script>
+    <script src="js/bars.js"></script>
 
 
 </body>
