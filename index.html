@@ -1,120 +1,127 @@
 <!doctype html>
 <html>
 <head>
-	<meta charset="utf-8">
-	<meta name="description" content="">
-	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<title>Law &amp; Order: Boston</title>
+    <meta charset="utf-8">
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Law &amp; Order: Boston</title>
 
-	<link rel="stylesheet" href="css/bootstrap.min.css">
-	<link rel="stylesheet" href="css/style.css">
-    
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/style.css">
 </head>
-    
-    
-    
+
+
 <body>
     <div class="container">
         <!-- INTRODUCTION  -->
         <div class="row pageTitle">
             <div class="jumbotron jumbotron-fluid">
-              <div class="container">
-                <h1 class="display-4">Law &amp; Order: Boston</h1>
-                <p class="lead">CSCI-171 Fall 2019</p>
-              </div>
+                <div class="container">
+                    <h1 class="display-4">Law &amp; Order: Boston</h1>
+                    <p class="lead">CSCI-171 Fall 2019</p>
+                </div>
             </div>
         </div>
-        
+
         <div class="row intro">
             <h4>Overview of City Crime Data</h4>
-            
+
             <section class="textBlock" id="textOverview">
                 Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
-                
+
             </section>
         </div>
-        
-        
-        
+
+
         <!-- CHOROPLETH MAP  -->
+
         <div class="row">
             <div class="visualization choropleth" id="vizChoropleth">
-                
-                <div class="user-control">
-                    <select id="choroplethYear" class="form-control">
-                        <option value="2015">2015</option>
-                        <option value="2016">2016</option>
-                        <option value="2017">2017</option>
-                        <option value="2018">2018</option>
-                        <option value="2019">2019</option>
-                    </select>
-                </div>
-                
-                <div class="user-control">
-                    <select id="choroplethCrime" class="form-control">
-                        <option value="All">All</option>
-                        <option value="Homicide">Homicide</option>
-                        <option value="Assault">Assault</option>
-                        <option value="Burglary">Burglary</option>
-                        <option value="Robbery">Robbery</option>
-                        <option value="Rape">Rape</option>
-                        <option value="B&E">B&amp;E</option>
-                    </select>
-                </div>
-                
-                <div class="user-control">
-                    <select id="choroplethLoD" class="form-control">
-                        <option value="perCapita">perCapita</option>
-                        <option value="Total">Total</option>
 
-                    </select>
+                <div id="vizChoropleth_top"></div>
+
+                <div class="row">
+                    <div class="user-control">
+                        <select id="choroplethYear" class="form-control">
+                            <option value="All">All Years</option>
+                            <option value="2015">2015</option>
+                            <option value="2016">2016</option>
+                            <option value="2017">2017</option>
+                            <option value="2018">2018</option>
+                            <option value="2019">2019</option>
+                        </select>
+                    </div>
+
+                    <div class="user-control">
+                        <select id="choroplethCrime" class="form-control">
+                            <option value="All">All Crime Types</option>
+                            <option value="Homicide">Homicide</option>
+                            <option value="Assault">Assault</option>
+                            <option value="Burglary">Burglary</option>
+                            <option value="Robbery">Robbery</option>
+                            <option value="Sexual">Sexual Offense</option>
+                            <option value="Vandalism">Vandalism</option>
+                        </select>
+                    </div>
+
+                    <div class="user-control">
+                        <select id="choroplethLoD" class="form-control">
+                         <option value="perCapita">Per Capita</option>
+                            <option value="Total">Total</option>
+                        </select>
+                    </div>
                 </div>
-                
-            </div>
+
         </div>
-        
-        
-        
+    </div>
+
+
+
         <!-- CHOROPLETH TEXT  -->
-        <div class="row"> 
-            <div class="col-lg-8 left"> 
+        <div class="row">
+            <div class="col-lg-8 left">
                 <section class="textBlock" id="textChoropleth">
                     <h4> Choropleth Title</h4>
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
-                    <br> <br>   
+                    <p>
+                        Most Bostonians think they know which areas areas are the most crime-ridden, but how well
+                        do their assumptions match the data? The map below is colored by the number of crimes in
+                        each Boston police district. Use the dropdowns to investigate specific years and specific
+                        types of crime. How accurate are your perceptions of Boston crime?
+                    </p>
+                    <br> <br>
                     Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
                 </section>
-                
+
             </div>
             <div class="col-lg-4 right">
-                <img src="img/placeholder.jpg" class="image-fluid smImage">
+                <h4>HERE THERE WILL BE AN IMAGE </h4><!--<img src="img/placeholder.jpg" class="image-fluid smImage">-->
             </div>
         </div>
-          
-        
-        
-        <!-- TIME OF DAY Small Multiples -->
-        <div class="row"> 
 
-            <div class="col-lg-6 left">            
+
+
+        <!-- TIME OF DAY Small Multiples -->
+        <div class="row">
+
+            <div class="col-lg-6 left">
                 <div class="visualization smBarCharts" id="vizSmBarCharts"></div>
-            </div>   
-            
-            <div class="col-lg-6 right">            
-                 <section class="textBlock" id="textTime">
+            </div>
+
+            <div class="col-lg-6 right">
+                <section class="textBlock" id="textTime">
                     <h4> Time of Day:</h4>
-                     <h6>Types of Crimes</h6>
+                    <h6>Types of Crimes</h6>
                     Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
                 </section>
-            
+
             </div>
         </div>
 
-        
-        
+
+
         <!-- FREQUENCY - RADIAL Visualization -->
-        <div class="row"> 
-            <div class="col-lg-6 left"> 
+        <div class="row">
+            <div class="col-lg-6 left">
                 <div id="districtHolder1">
                     <div class="user-control-alt" id="districtControl">
                         <select id="radialDistricts" class="form-control" >
@@ -136,33 +143,33 @@
                 <section class="textBlock" id="textFrequency">
                     Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
                 </section>
-            
+
             </div>
-            <div class="col-lg-6 right">            
+            <div class="col-lg-6 right">
                 <div class="visualization radial" id="vizRadial"></div>
-            </div>   
+            </div>
         </div>
-        
-        
-        
+
+
+
         <!-- FREQUENCY -TEXT -->
-        <div class="row frequencyText"> 
-          
+        <div class="row frequencyText">
+
             <section class="textBlock" id="textTime">
-                    <h4> Frequency of Crimes:</h4>
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
+                <h4> Frequency of Crimes:</h4>
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
             </section>
         </div>
-        
-        
-        
+
+
+
         <!-- Bubble Chart -->
         <div class="row">
-            <div class="col-lg-6 left">            
+            <div class="col-lg-6 left">
                 <div class="visualization bubbles" id="vizBubbleChart">
                 </div>
-                
-                <div class="row"> 
+
+                <div class="row">
                     <div class="user-control-alt" id="districtControl">
                         <select id="radialDistricts" class="form-control" >
                             <option value="A1">Downtown</option>
@@ -179,7 +186,7 @@
                             <option value="E18">Hyde Park</option>
                         </select>
                     </div>
-                        
+
                     <div class="user-control">
                         <select id="bubbleChartYear" class="form-control">
                             <option value="2015">2015</option>
@@ -188,46 +195,49 @@
                             <option value="2018">2018</option>
                             <option value="2019">2019</option>
                         </select>
-                    </div>   
+                    </div>
                 </div>
-                
+
             </div>
-            <div class="col-lg-6 right">            
-                 <section class="textBlock" id="textTime">
+            <div class="col-lg-6 right">
+                <section class="textBlock" id="textTime">
                     <h4> Bubble Chart Title</h4>
                     Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
                 </section>
             </div>
         </div>
-        
-        
-        
+
+
+
         <!-- CONCLUSION -->
-        <div class="row">           
+        <div class="row">
             <section class="textBlock" id="textTime">
-            <h4> Conclusion</h4>
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
-            <br><br>
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
+                <h4> Conclusion</h4>
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
+                <br><br>
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
             </section>
         </div>
-        
+
         <div class = "row footer">
         </div>
     </div>
 
-            
 
-	<!-- Load JS libraries -->
-	<script src="js/jquery.min.js"></script>
-	<script src="js/popper.min.js"></script>
-	<script src="js/bootstrap.min.js"></script>
-	<script src="js/queue.min.js"></script>
-	<script src="js/topojson.min.js"></script>
-	<script src="js/d3.min.js"></script>
-	<script src="js/d3-tip.js"></script>
-    <script src="https://unpkg.com/d3-scale-cluster@1.3.1/dist/d3-scale-cluster.min.js"></script>
 
+
+    <!-- Load JS libraries -->
+<script src="js/jquery.min.js"></script>
+<script src="js/popper.min.js"></script>
+<script src="js/bootstrap.min.js"></script>
+<script src="js/queue.min.js"></script>
+<script src="js/topojson.min.js"></script>
+<script src="js/d3.min.js"></script>
+<script src="js/d3-tip.js"></script>
+<script src="https://unpkg.com/d3-scale-cluster@1.3.1/dist/d3-scale-cluster.min.js"></script>
+
+<!-- Choropleth file-->
+<script src="js/choropleth.js"></script>
 
 </body>
 </html>

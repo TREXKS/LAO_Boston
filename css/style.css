@@ -1,87 +1,28 @@
-
-@font-face {
-    font-family: 'Roboto-Regular';
-    src: url(../fonts/Roboto/Roboto-Regular.ttf) format('truetype');
-}
-@font-face {
-    font-family: 'Montserrat-Regular';
-    src: url(../fonts/Montserrat/Montserrat-Regular.ttf) format('truetype');
-}
-body{
-    font-family:'Montserrat-Regular';
+.container {
+    margin-right: 5%;
+    margin-left: 5%;
 }
 
-.tooltip-title {
-  display: block;
-  margin-bottom: 5px;
-  font-weight: 600;
+body {
+    background-color: #080808;
+    color: white;
 }
 
-.d3-tip {
-  line-height: 1.5;
-  padding: 12px;
-  background: rgba(0, 0, 0, 1);
-  color: #fff;
-  border-radius: 2px;
-  font-size:10px;
+.jumbotron{
+    background-color: #080808;
 }
-
-
 
 .jumbotron-fluid{
-    width:100%;
-    color:white;
+    background-color: #080808;
 }
 
-.jumbotron {
-  background-image: url("../img/placeholder.jpg");
-  background-size: cover;
-}
-
-.row{
-    margin-top:2em
-}
-
-.visualization{
-    min-height:200px;
-    border: 1px red dashed;
-    margin:-px;
-    width:100%
-}
-
-.user-control{
-    max-width:30%;
-    float:left;
-    padding:0 .5em;
-}
-.smImage{
-    object-fit:cover;
-        width:100%;
-}
-
-h4,h6,h1{
-    font-family:'Roboto-Regular';
-}
-
-h1,h4{
-    font-weight:900;
-}
-
-#districtHolder1,#districtHolder2{
-    display:inline-block;
-    width:100% 
-}
-
-.footer{
-    min-height:8em;
-}
-#districtControl{
-    width:50%;
-    margin:0 auto;
-    margin-bottom:1.5em
-        
-    
-}
-body{
-    
+/* Tooltip */
+.tooltip {
+    line-height: 1;
+    padding: 12px;
+    background: rgba(43,43,43, 0.8);
+    color: #fff;
+    border-radius: 2px;
+    font-family: Calibri;
+    font-weight: lighter;
 }
