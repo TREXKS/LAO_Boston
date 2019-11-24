@@ -13,44 +13,45 @@ var svgBubble = d3.select("#vizBubbleChart").append("svg")
     .attr("transform", "translate(" + bubbleMargin.left + "," + bubbleMargin.top + ")");
 
 d3.csv("data/Boston_crime_data.csv", function(data) {
-    var dataByDistrict = d3.nest()
-        .key(function(d) { return d.DISTRICT; })
-        .key(function(d) { return d.YEAR; })
-        .key(function(d) {
-            if(d.OFFENSE_CODE > 110 && d.OFFENSE_CODE< 115){
-                return "Homicides";
-            }
-            if((d.OFFENSE_CODE > 210 && d.OFFENSE_CODE < 272)||
-                (d.OFFENSE_CODE >1700 && d.OFFENSE_CODE < 1732)){
-                return "Sex Crimes";
-            }
-            if((d.OFFENSE_CODE > 400 && d.OFFENSE_CODE < 434)||
-                (d.OFFENSE_CODE > 800 && d.OFFENSE_CODE < 804)){
-                return "Assaults";
-            }
-            if(d.OFFENSE_CODE > 300 && d.OFFENSE_CODE< 382){
-                return "Robberies";
-            }
-            if(d.OFFENSE_CODE > 509 && d.OFFENSE_CODE< 563){
-                return "Burglaries";
-            }
-            if(d.OFFENSE_CODE > 1400 && d.OFFENSE_CODE< 1500){
-                return "Vandalism";
-            }else{
-                return "Total"}})
-        .rollup(function(leaves) { return leaves.length; })
-        .entries(data);
 
+    // Get nested data
+    var dataByDistrict = nestByDistricts(data);
+    var dataByType = nestByType(data);
+
+    // Initialize bubble chart
     showSelectedData(dataByDistrict);
 
+    // Update chart when dropdown is changed
     $(".bubblechange").change(function() {
-        showSelectedData(dataByDistrict);
+
+        // Get class of circles
+       var dataDisplayed = $("circle:gt(0)").attr("class");
+
+       // Call appropriate function with relevant data
+       if (dataDisplayed == "broadCategories") {
+           showSelectedData(dataByDistrict);
+       }
+       else showSpecificData(dataByType, dataDisplayed);
     });
+
+    // Show specific data categories when bubbles are clicked
+    $(document).on("click", "circle", function() {
+
+        // Get class of circles
+        var dataDisplayed = $("circle:gt(1)").attr("class");
+
+        // Toggle level of specificity
+        if (dataDisplayed == "broadCategories") {
+            var selectedType = $(this).attr("id");
+            showSpecificData(dataByType, selectedType);
+        }
+        else showSelectedData(dataByDistrict);
+    })
 
 });
 
 // Use selections from dropdown to update bubbles
-function showSelectedData (data) {
+function showSelectedData(data) {
     var selectedDistrict = $("#bubbleDistricts").children("option:selected").val();
     var selectedDate = $("#bubbleChartYear").children("option:selected").val();
     var tempData1 = data.filter(function(d) {
@@ -63,12 +64,37 @@ function showSelectedData (data) {
         return (d.key != "Total");
     });
 
-    createBubbleVis(finalData);
+    createBubbleVis(finalData, "broadCategories");
 
 }
 
+function showSpecificData(data, type) {
+    var finalData;
+    var selectedDistrict = $("#bubbleDistricts").children("option:selected").val();
+    var selectedDate = $("#bubbleChartYear").children("option:selected").val();
+    var tempData1 = data.filter(function (d) {
+        return (d.key == selectedDistrict);
+    });
+    var tempData2 = tempData1[0].values.filter(function (d) {
+        return (d.key == selectedDate);
+    });
+    var tempData3 = tempData2[0].values.filter(function(d) {
+        return (d.key == type);
+    });
+    if (tempData3.length != 0) {
+        finalData = tempData3[0].values.filter(function(d) {
+            return (d.key != "undefined");
+        });
+    }
+    else finalData = [{ key: "None", value: 0 }];
+
+    createBubbleVis(finalData, type);
+
+}
+
+
 // Create bubble chart
-function createBubbleVis(data) {
+function createBubbleVis(data, classname) {
 
     var bubbleData = {
         "children": data
@@ -104,15 +130,19 @@ function createBubbleVis(data) {
 
     // ENTER new elements
     circle.enter().append("circle")
+        .attr("id", function(d) {
+            return d.data.key;
+        })
+        .attr("class", classname)
         .filter(function(d) {
             return !d.children
         })
         .attr("r", 1e-6)
         .attr("cx", function(d){ return d.x; })
         .attr("cy", function(d){ return d.y; })
-        .style("fill", "#fff")
+        .attr("fill", "#fff")
         .transition(t)
-        .style("fill", "#fb9a99")
+        .attr("fill", function(d) { return setColor(d.data.key, classname); })
         .attr("r", function(d){ return d.r });
 
     title.enter().append("text")
@@ -174,16 +204,16 @@ function createBubbleVis(data) {
 }
 
 // Possibly have different colors for each crime category?
-/*
-function returnColor(category) {
-    switch(category) {
-        case 'Assaults': return '#fb9a99';
-        case 'Burglaries': return '#33a02c';
-        case 'Homicides': return '#e31a1c';
-        case 'Robberies': return '#a6cee3';
-        case 'Sex Crimes': return '#1f78b4';
-        case 'Vandalism': return '#b2df8a';
-    }
+function setColor(id, className) {
+    if (id == 'Assaults' || className == 'Assaults') {
+        return '#fb9a99';
+    } else if (id == 'Burglaries' || className == 'Burglaries') {
+        return '#a6cee3';
+    } else if (id == 'Homicides' || className == 'Homicides') {
+        return '#FF4040';
+    } else if (id == 'Robberies' || className == 'Robberies') {
+        return '#0099CC';
+    } else if (id == 'Rape' || className == 'Rape') {
+        return '#9F5F9F';
+    } else return '#D8BFD8';
 }
-
- */
