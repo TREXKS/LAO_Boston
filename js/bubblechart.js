@@ -206,7 +206,23 @@ function createBubbleVis(data, classname) {
         .remove();
 }
 
-// Possibly have different colors for each crime category?
+// Set colors for bubbles of each crime category
+function setColor(id, className) {
+    if (id == 'Assaults' || className == 'Assaults') {
+        return '#C21CC8';
+    } else if (id == 'Burglaries' || className == 'Burglaries') {
+        return '#3333FF';
+    } else if (id == 'Homicides' || className == 'Homicides') {
+        return '#FF00AA';
+    } else if (id == 'Robberies' || className == 'Robberies') {
+        return '#8B008B';
+    } else if (id == 'Rape' || className == 'Rape') {
+        return '#C71585';
+    } else return '#2109C9';
+}
+
+// Alternate colors for bubbles
+/*
 function setColor(id, className) {
     if (id == 'Assaults' || className == 'Assaults') {
         return '#F08080';
@@ -220,3 +236,6 @@ function setColor(id, className) {
         return '#BA55D3';
     } else return '#4DBD33';
 }
+
+ */
+
