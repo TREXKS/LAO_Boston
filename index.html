@@ -2,7 +2,8 @@
 <meta charset="utf-8">
 <script src="https://d3js.org/d3.v4.min.js"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
-
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
 
 <link rel="stylesheet" href="css/stylecode.css">
 <link rel="stylesheet" href="css/bootstrap.min.css">
@@ -11,32 +12,103 @@
 
 <!-- TItle -->
 <div class="jumbotron text-center">
-	<h2 >RADIAL CHART</h2>
+	<h2 >RADIAL CHART - Prototype V2</h2>
 	<h4><i> LAW AND ORDER: BOSTON</i> </h4>
 </div>
 
-<h2 class="text">OVERALL DATA - MONTHLY COUNTS</h2>
-<h3 class="text">Appears that August is the month with the highest amount of criminal activity</h3>
+<h2 class="text"><u>OVERVIEW</u></h2>
+<h3 class="text1">Crime presents itself all year round but differs throughout the months. Analyzing trends will
+assist in avoidance and prevention of certain crimes and minimize the impact they have on the general public.
+Why do more car accidents happen in December and September more than any other months? These
+visualizations will allow us to ask these questions and begin to explore the relevent crimes around your area.
+*Search by district, crime, or monthly frequency!* </h3>
 
+<h2 class="text"><u>Crime Data by Month</u></h2>
+
+
+<div class="container" >
+	<form class="form-inline">
+		 <div class="form-group">
+				<label for="crime-type"></label>
+				<select class="form-control" id="ranking-type">
+					 <option value="homocide">Homocide</option>
+					 <option value="assault">Assault</option>
+					 <option value="robbery">Robbery</option>
+					 <option value="burglary">Burglary</option>
+					 <option value="vandalism">Vandalism</option>
+					 <option value="rape">Rape</option>
+				</select>
+		 </div>
+	</form>
+</div>
 <div class="container" >
   <div class="radarChart"></div>
+
+	<div class='card' style="background-color: black">
+		<table class="table table-hover month">
+		  <thead>
+		    <tr>
+		      <th style="font-size: 30px;" scope="col">Month</th>
+		      <th style="font-size: 30px;" scope="col"># of Cases</th>
+		    </tr>
+		  </thead>
+		  <tbody>
+		    <tr>
+		      <td>January</td>
+		      <td id="January"></td>
+		    </tr>
+				<tr>
+		      <td>February</td>
+		      <td id="February"></td>
+		    </tr>
+				<tr>
+		      <td>March</td>
+		      <td id="March"></td>
+		    </tr>
+				<tr>
+					<td>April</td>
+					<td id="April"></td>
+				</tr>
+				<tr>
+					<td>May</td>
+					<td id="May"></td>
+				</tr>
+				<tr>
+					<td>June</td>
+					<td id="June"></td>
+				</tr>
+				<tr>
+					<td>July</td>
+					<td id="July"></td>
+				</tr>
+				<tr>
+					<td>August</td>
+					<td id="August"></td>
+				</tr>
+				<tr>
+					<td>September</td>
+					<td id="September"></td>
+				</tr>
+				<tr>
+					<td>October</td>
+					<td id="October"></td>
+				</tr>
+				<tr>
+					<td>November</td>
+					<td id="November"></td>
+				</tr>
+				<tr>
+					<td>December</td>
+					<td id="December"></td>
+				</tr>
+		  </tbody>
+		</table>
+	</div>
+
 </div>
 
-<hr>
-<h2 class="text">OPERATING UNDER THE INFLUENCE OF ALCOHOL - MONTHLY COUNTS</h2>
-<h3 class="text">December, March, and September have the highest counts of operating under the influence. Holidays? other reasons?</h3>
 
-<div class="container">
-  <div class="radarChart2"></div>
-</div>
 
-<hr>
-<h2 class="text">ANIMAL CONTROL - DOG BITES - ECT - MONTHLY COUNTS</h2>
-<h3 class="text">July has the highest occurance of dog bites. Summer seasons?</h3>
-
-<div class="container" >
-  <div class="radarChart3"></div>
-</div>
 
 </body>
 
