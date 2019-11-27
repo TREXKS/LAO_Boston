@@ -97,12 +97,20 @@ function showSpecificData(data, type) {
 // Create bubble chart
 function createBubbleVis(data, classname) {
 
+    // General bubble layout adapted from https://bl.ocks.org/alokkshukla/3d6be4be0ef9f6977ec6718b2916d168
+    // Transitions adapted from https://bl.ocks.org/HarryStevens/54d01f118bc8d1f2c4ccd98235f33848
+
     var bubbleData = {
         "children": data
     };
-
-    // General bubble layout adapted from https://bl.ocks.org/alokkshukla/3d6be4be0ef9f6977ec6718b2916d168
-    // Transitions adapted from https://bl.ocks.org/HarryStevens/54d01f118bc8d1f2c4ccd98235f33848
+    // Establish hierarchy
+    var nodes = d3.hierarchy(bubbleData)
+        .sum(function(d) {
+            return d.value;
+        })
+        .sort(function(a, b) {
+            return b.value - a.value;
+        });
 
     //Establish pack layout
     var bubble = d3.pack(bubbleData)
@@ -113,11 +121,6 @@ function createBubbleVis(data, classname) {
     var t = d3.transition()
         .duration(1000);
 
-    // Establish hierarchy
-    var nodes = d3.hierarchy(bubbleData)
-        .sum(function(d) {
-            return d.value;
-        });
 
     // Establish elements in chart
     var circle = svgBubble.selectAll("circle")

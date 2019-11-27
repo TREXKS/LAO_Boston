@@ -133,7 +133,7 @@ function nestByType(data) {
                     return "Other Robbery";
                 // Homicides
                 case "MURDER, NON-NEGLIGIENT MANSLAUGHTER":
-                    return "Non-Negligent Manslaughter";
+                    return "Homicide";
                 // Rape
                 case "SEX OFFENSE - RAPE - FORCIBLE":
                 case "SEX OFFENSE - RAPE - SEXUAL ASSAULT W/ OBJECT":
