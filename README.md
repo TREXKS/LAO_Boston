@@ -1,3 +1,11 @@
 Law and Order: Boston
 
-test for bubble branch
+Combined Law and Order: Boston Site
+
+- bubble chart features need to change
+
+- map key needs to update
+
+- css and styling
+
+- change size of radial and time series

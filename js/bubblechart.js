@@ -12,7 +12,7 @@ var svgBubble = d3.select("#vizBubbleChart").append("svg")
     .append("g")
     .attr("transform", "translate(" + bubbleMargin.left + "," + bubbleMargin.top + ")");
 
-d3.csv("data/Boston_crime_data.csv", function(data) {
+d3.csv("data/crimeData.csv", function(data) {
 
     // Get nested data
     var dataByDistrict = nestByDistricts(data);
@@ -241,4 +241,3 @@ function setColor(id, className) {
 }
 
  */
-

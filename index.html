@@ -1,245 +1,272 @@
 <!doctype html>
 <html>
 <head>
-    <meta charset="utf-8">
-    <meta name="description" content="">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Law &amp; Order: Boston</title>
+	<meta charset="utf-8">
+	<meta name="description" content="">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>Law &amp; Order: Boston</title>
 
-    <link rel="stylesheet" href="css/bootstrap.min.css">
-    <link rel="stylesheet" href="css/style.css">
+	<link rel="stylesheet" href="css/bootstrap.min.css">
+	<link rel="stylesheet" href="css/style.css">
 
 </head>
 
 
 
 <body>
-<div class="container">
-    <!-- INTRODUCTION  -->
-    <div class="row pageTitle">
-        <div class="jumbotron jumbotron-fluid">
-            <div class="container">
+    <div class="container">
+        <!-- INTRODUCTION  -->
+        <div class="row pageTitle">
+            <div class="jumbotron jumbotron-fluid">
+
+              <div class="container">
                 <h1 class="display-4">Law &amp; Order: Boston</h1>
                 <p class="lead">CSCI-171 Fall 2019</p>
+                <p class="photoCredit">Vjeran PavicFollow - Kenmore @ Night<br><span class="license">Creative Commons license</span></p>
+              </div>
             </div>
         </div>
-    </div>
 
-    <div class="row intro">
-        <h4>Overview of City Crime Data</h4>
+        <div class="row intro">
+            <h4>Overview of City Crime Data</h4>
 
-        <section class="textBlock" id="textOverview">
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
+            <section class="textBlock" id="textOverview">
+                In today’s data-driven world, city governments collect vast amounts of information about every aspect of public life. Crime data, in particular, can help cities take steps to improve the personal and social well-being of their citizens. Knowing where and when most crime happens can allow cities to allocate more resources at necessary places and times to maximize public safety.<br><br>
+                In addition, knowing the most common types of crime in a given area can help cities prepare security forces against new and emerging threats. What are the crime trends in this beautiful city we call our home? As Boston residents ourselves, we hope that our project will illuminate crime patterns for all those in the Boston area.
 
-        </section>
-    </div>
-
-
-
-    <!-- CHOROPLETH MAP  -->
-    <div class="row">
-        <div class="visualization choropleth" id="vizChoropleth">
-
-            <div class="user-control">
-                <select id="choroplethYear" class="form-control">
-                    <option value="2015">2015</option>
-                    <option value="2016">2016</option>
-                    <option value="2017">2017</option>
-                    <option value="2018">2018</option>
-                    <option value="2019">2019</option>
-                </select>
-            </div>
-
-            <div class="user-control">
-                <select id="choroplethCrime" class="form-control">
-                    <option value="All">All</option>
-                    <option value="Homicide">Homicide</option>
-                    <option value="Assault">Assault</option>
-                    <option value="Burglary">Burglary</option>
-                    <option value="Robbery">Robbery</option>
-                    <option value="Rape">Rape</option>
-                    <option value="B&E">B&amp;E</option>
-                </select>
-            </div>
-
-            <div class="user-control">
-                <select id="choroplethLoD" class="form-control">
-                    <option value="perCapita">perCapita</option>
-                    <option value="Total">Total</option>
-
-                </select>
-            </div>
-
-        </div>
-    </div>
-
-
-
-    <!-- CHOROPLETH TEXT  -->
-    <div class="row">
-        <div class="col-lg-8 left">
-            <section class="textBlock" id="textChoropleth">
-                <h4> Choropleth Title</h4>
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
-                <br> <br>
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
             </section>
+        </div>
 
-        </div>
-        <div class="col-lg-4 right">
-            <img src="img/placeholder.jpg" class="image-fluid smImage">
-        </div>
+
+
+        <!-- CHOROPLETH MAP  -->
+				<div class="row">
+
     </div>
 
 
 
-    <!-- TIME OF DAY Small Multiples -->
-    <div class="row">
 
-        <div class="col-lg-6 left">
-            <div class="visualization smBarCharts" id="vizSmBarCharts"></div>
+        <!-- CHOROPLETH TEXT  -->
+        <div class="row">
+            <div class="col-lg-4 left">
+                <section class="textBlock" id="textChoropleth">
+                    <h4>Caught Red-Handed</h4>
+                    <p>The map above is colored by the number of crimes in each Boston police district. Use the dropdowns to specify years and types of crime you would like to investigate. Hover over a district to display the number of specified crimes for specified years.
+                        <br><br>
+                    There are certain neighborhoods that Bostonians historically think of as crime-ridden. Are these perceptions rooted in reality, or are they stereotypes? And how much does type of crime affect these perceptions? Certain crimes, such as homicide, happen predominantly in only a couple neighborhoods. Others, like burglary, are distributed pretty evenly throughout Boston.
+                        <br><br>
+                    How accurate are your perceptions of Boston crime?
+                    </p>
+                </section>
+
+            </div>
+            <div class="col-lg-8 right">
+							<div class="visualization choropleth" id="vizChoropleth">
+
+	                <div id="vizChoropleth_top"></div>
+
+	                <div class="row">
+	                    <div class="user-control">
+	                        <select id="choroplethYear" class="form-control">
+	                            <option value="All">All Years</option>
+	                            <option value="2015">2015</option>
+	                            <option value="2016">2016</option>
+	                            <option value="2017">2017</option>
+	                            <option value="2018">2018</option>
+	                            <option value="2019">2019</option>
+	                        </select>
+	                    </div>
+
+	                    <div class="user-control">
+	                        <select id="choroplethCrime" class="form-control">
+	                            <option value="All">All Crime Types</option>
+	                            <option value="Homicide">Homicide</option>
+	                            <option value="Assault">Assault</option>
+	                            <option value="Burglary">Burglary</option>
+	                            <option value="Robbery">Robbery</option>
+	                            <option value="Sexual">Sexual Offense</option>
+	                            <option value="Vandalism">Vandalism</option>
+	                        </select>
+	                    </div>
+
+	                    <div class="user-control">
+	                        <select id="choroplethLoD" class="form-control">
+	                         <option value="perCapita">Per Capita</option>
+	                            <option value="Total">Total</option>
+	                        </select>
+	                    </div>
+	                </div>
+
+	        </div>
+            </div>
         </div>
 
-        <div class="col-lg-6 right">
+
+
+        <!-- TIME OF DAY Small Multiples -->
+
+
+        <div class="row">
+                 <section class="textBlock" id="textTime">
+                    <h4> Time of Day:</h4>
+                     <h6>Wrong Place at the Wrong Time</h6>
+                    The<strong> City of Boston</strong> is broken up 12 police districts. Each has its own set of challenges for police to face. In the above visual we display the 6 major types of crime and break out the reports per district.
+                    <br><br>
+                    From the initial view, you'd think that Dorchester and Roxbury have the highest crime rate. But, this view is only showing you the total percentage of city-wide crime. It does not account for population. Switch the view using the drop-down and see how the values change. Notice Dorchester, which previously looked like a high-crime area, is now below average for every type of crime shown.
+                    <br><br>
+                     <strong>We can now see where the crimes are taking place, but when are they occuring?</strong><br>
+                     Are some areas safer at night, in the morning, etc.? By interacting with the data above you can see how different crimes rise and fall throughout the city during the day. Drag your mouse over the timeline next to the drop-down to see how the numbers change.
+                    <br><br>
+                    What we found is this...Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
+                </section>
+                <br><br><hr><br>
+
+        </div>
+
+				<div class="row">
+						<div class="visualization smBarCharts" id="vizSmBarCharts">
+								<div class="user-control" >
+										<select id="barsControl1" class="form-control">
+												<option value="city_percentage">% of Incidents Citywide</option>
+												<option value="perCapita_average">Per Capita Variation from Average </option>
+										</select>
+								</div>
+						</div>
+
+				</div>
+
+
+
+        <!-- FREQUENCY - RADIAL Visualization -->
+        <div class="row">
+            <div class="col-lg-12 left">
+
+                <section class="textBlock" id="textFrequency">
+                    Crime presents itself all year round but differs throughout the months. Analyzing trends will assist in prevention and avoidance of certain crimes and minimize the impact they have on the general public. <br><br>
+                <ul>
+                    <li>Why do more car accidents happen in December and September more than any other months?</li><br>
+                    <li>What month holds the highest amount of crime activity?</li>
+                </ul>
+                These visualizations will allow us to ask these questions and begin to explore the relevant crimes around your area. <br><br><aside>*Search by district, crime, or monthly frequency!*</aside>
+                </section>
+
+								<div id="districtHolder1">
+										<div class="user-control-alt" id="districtControl">
+											<select class="form-control" id="ranking-type">
+												 <option value="homocide">Homocide</option>
+												 <option value="assault">Assault</option>
+												 <option value="robbery">Robbery</option>
+												 <option value="burglary">Burglary</option>
+												 <option value="vandalism">Vandalism</option>
+												 <option value="rape">Rape</option>
+											</select>
+										</div>
+								</div>
+
+            </div>
+
+        </div>
+				<div class="col-lg-4 right">
+						<div class="radarChart" id="vizRadial"></div>
+				</div>
+
+
+        <!-- FREQUENCY -TEXT -->
+        <div class="row frequencyText">
+
             <section class="textBlock" id="textTime">
-                <h4> Time of Day:</h4>
-                <h6>Types of Crimes</h6>
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
+                <h4> Frequency of Crimes:</h4>
+                <br>
+                <ul>
+                    <li>What types of crimes are most common in specific Boston neighborhoods?</li>
+                    <li>How has this changed since 2015? </li>
+                </ul>
             </section>
-
         </div>
-    </div>
 
 
 
-    <!-- FREQUENCY - RADIAL Visualization -->
-    <div class="row">
-        <div class="col-lg-6 left">
-            <div id="districtHolder1">
-                <div class="user-control-alt" id="districtControl">
-                    <select id="radialDistricts" class="form-control" >
-                        <option value="A1">Downtown</option>
-                        <option value="A15">Charlestown</option>
-                        <option value="A7">East Boston</option>
-                        <option value="B2">Roxbury</option>
-                        <option value="B3">Mattapan</option>
-                        <option value="C6">South Boston</option>
-                        <option value="C11">Dorchester</option>
-                        <option value="D4">South End</option>
-                        <option value="D14">Brighton</option>
-                        <option value="E5">West Roxbury</option>
-                        <option value="E13">Jamaica Plain</option>
-                        <option value="E18">Hyde Park</option>
-                    </select>
-                </div>
+        <!-- Bubble Chart -->
+        <div class="row">
+					<div class="col-lg-8 left">
+	            <div class="visualization bubbles" id="vizBubbleChart">
+	            </div>
+
+	            <div class="row">
+	                <div class="user-control-alt" id="districtControl">
+	                    <select id="bubbleDistricts" class="form-control bubblechange" >
+	                        <option value="A1">Downtown</option>
+	                        <option value="A15">Charlestown</option>
+	                        <option value="A7">East Boston</option>
+	                        <option value="B2">Roxbury</option>
+	                        <option value="B3">Mattapan</option>
+	                        <option value="C6">South Boston</option>
+	                        <option value="C11">Dorchester</option>
+	                        <option value="D4">South End</option>
+	                        <option value="D14">Brighton</option>
+	                        <option value="E5">West Roxbury</option>
+	                        <option value="E13">Jamaica Plain</option>
+	                        <option value="E18">Hyde Park</option>
+	                    </select>
+	                </div>
+
+	                <div class="user-control">
+	                    <select id="bubbleChartYear" class="form-control bubblechange">
+	                        <option value="2015">2015</option>
+	                        <option value="2016">2016</option>
+	                        <option value="2017">2017</option>
+	                        <option value="2018">2018</option>
+	                        <option value="2019">2019</option>
+	                    </select>
+	                </div>
+	            </div>
+
+	        </div>
+            <div class="col-lg-4 right">
+                 <section class="textBlock" id="textTime">
+                    <h4> What We Notice</h4>
+                    Crime Fluctuates Between Districts from 2015 to 2019.<br><br>
+
+                    The bubbles reveal that Assaults are most common in all neighborhoods, followed by Vandalism. For many neighborhoods, such as Roxbury, Mattapan, and South End, the total number of crimes skyrocketed between 2015 and 2016. Roxbury in particular had the greatest number of crimes, especially in more serious crime categories such as Homicides and Rape.<br><br>
+
+                    In the subcategories, the breakdown of specific types of crimes differs for each neighborhood. For example, commercial burglary is the most common type of burglary in Downtown, whereas residential burglary is most common in other areas.<br><br> Check out the subcategories to explore the specific breakdown in each district.<br><br>
+                </section>
             </div>
-            <section class="textBlock" id="textFrequency">
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
-            </section>
-
         </div>
-        <div class="col-lg-6 right">
-            <div class="visualization radial" id="vizRadial"></div>
-        </div>
-    </div>
 
 
 
-    <!-- FREQUENCY -TEXT -->
-    <div class="row frequencyText">
-
-        <section class="textBlock" id="textTime">
-            <h4> Frequency of Crimes:</h4>
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
-        </section>
-    </div>
-
-
-
-    <!-- Bubble Chart -->
-    <div class="row">
-        <div class="col-lg-8 left">
-            <div class="visualization bubbles" id="vizBubbleChart">
-            </div>
-
-            <div class="row">
-                <div class="user-control-alt" id="districtControl">
-                    <select id="bubbleDistricts" class="form-control bubblechange" >
-                        <option value="A1">Downtown</option>
-                        <option value="A15">Charlestown</option>
-                        <option value="A7">East Boston</option>
-                        <option value="B2">Roxbury</option>
-                        <option value="B3">Mattapan</option>
-                        <option value="C6">South Boston</option>
-                        <option value="C11">Dorchester</option>
-                        <option value="D4">South End</option>
-                        <option value="D14">Brighton</option>
-                        <option value="E5">West Roxbury</option>
-                        <option value="E13">Jamaica Plain</option>
-                        <option value="E18">Hyde Park</option>
-                    </select>
-                </div>
-
-                <div class="user-control">
-                    <select id="bubbleChartYear" class="form-control bubblechange">
-                        <option value="2015">2015</option>
-                        <option value="2016">2016</option>
-                        <option value="2017">2017</option>
-                        <option value="2018">2018</option>
-                        <option value="2019">2019</option>
-                    </select>
-                </div>
-            </div>
-
-        </div>
-        <div class="col-lg-4 right">
+        <!-- CONCLUSION -->
+        <div class="row">
             <section class="textBlock" id="textTime">
-                <h4>Crime Fluctuates Between Districts from 2015 to 2019</h4>
-                <p>
-                    SELECT a neighborhood and year from the dropdown to compare quantities of each crime type. The bubbles
-                    will shift when one category overtakes another.
-                    <br><br>
-                    CLICK on a bubble for more details about a category. Click again to return to the main view.
-                    <br><br>
-                    For many neighborhoods, such as Roxbury, Mattapan, and South End, the total number of crimes skyrocketed
-                    between 2015 and 2016.
-                    <br><br>
-                    Roxbury has the greatest number of crimes, especially in more serious crime categories such as Homicides and Rape.
-                </p>
-            </section>
-        </div>
-    </div>
-
-
-
-    <!-- CONCLUSION -->
-    <div class="row">
-        <section class="textBlock" id="textTime">
             <h4> Conclusion</h4>
             Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
             <br><br>
             Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
-        </section>
+            </section>
+        </div>
+
+        <div class = "row footer">
+        </div>
     </div>
 
-    <div class = "row footer">
-    </div>
-</div>
 
 
-
-<!-- Load JS libraries -->
-<script src="js/jquery.min.js"></script>
-<script src="js/popper.min.js"></script>
-<script src="js/bootstrap.min.js"></script>
-<script src="js/queue.min.js"></script>
-<script src="js/topojson.min.js"></script>
-<script src="js/d3.min.js"></script>
-<script src="js/d3-tip.js"></script>
-<script src="https://unpkg.com/d3-scale-cluster@1.3.1/dist/d3-scale-cluster.min.js"></script>
-
-<script src="js/bubbledata.js"></script>
-<script src="js/bubblechart.js"></script>
+	<!-- Load JS libraries -->
+	<script src="js/jquery.min.js"></script>
+	<script src="js/popper.min.js"></script>
+	<script src="js/bootstrap.min.js"></script>
+	<script src="js/queue.min.js"></script>
+	<script src="js/topojson.min.js"></script>
+	<script src="js/d3.min.js"></script>
+	<script src="js/d3-tip.js"></script>
+    <script src="https://unpkg.com/d3-scale-cluster@1.3.1/dist/d3-scale-cluster.min.js"></script>
+    <script src="js/bars.js"></script>
+		<script src="js/radar.js"></script>
+		<script src="js/choropleth.js"></script>
+		<script src="js/bubbledata.js"></script>
+		<script src="js/bubblechart.js"></script>
 
 
 </body>

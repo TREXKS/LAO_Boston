@@ -1,26 +1,185 @@
-/* custom css rules */
 
-body {
-	font-family: 'Raleway', sans-serif;
-	background-color: black;
-	color:white;
+@font-face {
+    font-family: 'Roboto-Regular';
+    src: url(../fonts/Roboto/Roboto-Regular.ttf) format('truetype');
 }
-
-h1 {
+@font-face {
+    font-family: 'Montserrat-Regular';
+    src: url(../fonts/Montserrat/Montserrat-Regular.ttf) format('truetype');
 }
-
-text {
-	font-family: Arial, sans-serif;
-	font-weight: bold;
-}
-
-.tooltip {
-	background-color: black;
-	border-radius: 5px;
-	padding: 10px;
-	color: white;
+body{
+    font-family:'Montserrat-Regular';
+    background-color:#080808;
+    color:antiquewhite
 }
 
 
 
+h1, h2, h3, h4, h5, h6{
+    color:white;
+}
 
+h4,h6,h1{
+    font-family:'Roboto-Regular';
+}
+
+h1,h4{
+    font-weight:900;
+}
+
+
+
+.tooltip-title {
+  display: block;
+  margin-bottom: 5px;
+  font-weight: 600;
+}
+
+.d3-tip {
+  line-height: 1.5;
+  padding: 12px;
+  background: rgba(0, 0, 0, 1);
+  color: #fff;
+  border-radius: 2px;
+  font-size:10px;
+}
+
+.jumbotron-fluid{
+    width:100%;
+    color:white;
+    text-shadow: black 4px 4px 4px;
+}
+.jumbotron {
+  background-image: url("../img/skyline.jpg");
+  background-size: cover;
+}
+
+
+.row{
+    margin-top:2em
+}
+
+
+aside{
+    font-size:.9em;
+    color:gray;
+    float:right;
+}
+
+.left{
+    padding-left:0
+}
+
+
+.visualization{
+    min-height:200px;
+    border: 1px red dashed;
+    margin:-px;
+    width:100%
+}
+
+
+#textTime{
+    padding-right:7em;
+}
+
+
+.instructions{
+    font-size:.8em
+}
+
+
+.user-control{
+    max-width:30%;
+    float:left;
+    padding:0 .5em;
+}
+
+
+.smImage{
+    object-fit:cover;
+        width:100%;
+}
+
+
+.jumbotron{
+    position:relative;
+}
+
+
+.photoCredit{
+    color:#5e5e96;
+    position:absolute;
+    top:10px;
+    text-align:right;
+    right:10px;
+    font-size:.7em;
+    text-shadow:none; 
+}
+
+
+#districtHolder1,#districtHolder2{
+    display:inline-block;
+    width:100% 
+}
+
+
+.footer{
+    min-height:8em;
+}
+
+
+#districtControl{
+    width:50%;
+    margin:0 auto;
+    margin-bottom:1.5em  
+}
+
+.form-control{
+    color:white;
+    background-color:#080808;
+    border:1px #213879 solid;
+    font-size:.9em;
+}
+
+/* BARS SPECIFIC STUFF */
+#vizSmBarCharts{
+    border:none;
+    background-color:#080808;
+    color:white;
+    position:relative;
+}
+#vizSmBarCharts .form-control{
+    position:absolute;
+    width:293px;
+    bottom:42px;
+}
+#vizSmBarCharts .rowGroup text {
+    fill:whitesmoke;
+}
+#vizSmBarCharts .rowGroup .tick text {
+    fill:grey;
+}
+.tick line{
+    display:none
+}
+.brushAxis{
+    font-family:'Roboto-Regular';
+    font-size:1em;
+    font-family:'Montserrat-Regular';
+}
+.brush rect.overlay{
+    fill:black;
+    stroke:#111111;
+}
+
+.brushAxis .tick line{
+    display:block;
+    stroke:#191919;    
+}
+.brushAxis .domain{
+    display:none
+}
+rect.handle{
+    stroke:aqua
+}
