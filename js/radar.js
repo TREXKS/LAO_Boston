@@ -1,8 +1,7 @@
 
-
 	var margin = {top: 100, right: 100, bottom: 100, left: 100},
-	width = Math.min(700, window.innerWidth - 10) - margin.left - margin.right,
-	height = Math.min(width, window.innerHeight - margin.top - margin.bottom - 20);
+	radar_width = Math.min(650, window.innerWidth - 10) - margin.left - margin.right,
+	height = Math.min(radar_width, window.innerHeight - margin.top - margin.bottom - 20);
 
 	var offset = 0;
 
@@ -59,7 +58,7 @@ function updateVisualization() {
 			.range(["#58D6C7","#CC333F","#00A0B0"]);
 
 			var radarChartOptions = {
-				w: width,
+				w: radar_width,
 				h: height,
 				margin: margin,
 				maxVal3ue: 0.5,
@@ -69,6 +68,23 @@ function updateVisualization() {
 				opacityCircles: 0.1
 			};
 
+			var month = [
+			  {key: 1, month: "Jan.",},
+				{key: 2, month: "Feb.",},
+				{key: 3, month: "March",},
+				{key: 4, month: "April",},
+				{key: 5, month: "May",},
+				{key: 6, month: "June",},
+				{key: 7, month: "July",},
+				{key: 8, month: "August",},
+				{key: 9, month: "Sept.",},
+				{key: 10, month: "Oct.",},
+				{key: 11, month: "Nov.",},
+				{key: 12, month: "Dec.",},
+
+
+			];
+
 		//Call function to draw the Radar chart
 		RadarChart(".radarChart", dataset_homo, radarChartOptions);
 
@@ -76,9 +92,9 @@ function updateVisualization() {
 
 		function RadarChart(id, data, options) {
 			var cfg = {
-				w: 200,				//Width of the circle
-				h: 200,				//Height of the circle
-				margin: {top: 60, right: 60, bottom: 60, left: 20}, //The margins of the SVG
+				w: 600,				//Width of the circle
+				h: 600,				//Height of the circle
+				margin: {top: 20, right: 20, bottom: 20, left: 20}, //The margins of the SVG
 				levels: 3,				//How many levels or inner circles should there be drawn
 				maxValue: 0, 			//What is the value that the biggest circle will represent
 				labelFactor: 1.25, 	//How much farther than the radius of the outer circle should the labels be placed
@@ -100,8 +116,10 @@ function updateVisualization() {
 
 		//If the supplied maxValue is smaller than the actual one, replace by the max in the data
 		var maxValue = Math.max(cfg.maxValue, d3.max(data, function(i){return d3.max(i.map(function(d){return d.value;}))}));
+		console.log(data[0])
+		console.log(month)
 
-		var allAxis = (data[0].map(function(i, j){return i.key})),	//Names of each axis
+		var allAxis = (month.map(function(i, j){return i.month})),	//Names of each axis
 		total = allAxis.length,					//The number of different axes
 		radius = Math.min(cfg.w/2, cfg.h/2), 	//Radius of the outermost circle
 		Format = d3.format(''),			 	//Percentage formatting
@@ -187,7 +205,8 @@ function updateVisualization() {
 		//Append the labels at each axis
 		axis.append("text")
 		.attr("class", "legend")
-		.style("font-size", "14px")
+		.style("font-size", "15px")
+		.style("stroke", "white")
 		.attr("text-anchor", "middle")
 		.attr("dy", "0.35em")
 		.attr("x", function(d, i){ return rScale(maxValue * cfg.labelFactor) * Math.cos(angleSlice*i  - Math.PI/2 - offset); })
@@ -359,7 +378,7 @@ function updateVisualization() {
 							//Append the labels at each axis
 							axis.append("text")
 							.attr("class", "legend")
-							.style("font-size", "13px")
+							.style("font-size", "20px")
 							.attr("text-anchor", "middle")
 							.attr("dy", "0.35em")
 							.attr("x", function(d, i){ return rScale(maxValue * cfg.labelFactor) * Math.cos(angleSlice*i  - Math.PI/2 - offset); })
