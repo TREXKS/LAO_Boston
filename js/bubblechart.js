@@ -24,8 +24,8 @@ d3.csv("data/crimeData.csv", function(data) {
     // Update chart when dropdown is changed
     $(".bubblechange").change(function() {
 
-        // Get class of circles
-       var dataDisplayed = $("circle:gt(0)").attr("class");
+        // Get second class of circle
+       var dataDisplayed = $(".bubbleCircle").attr("class").split(' ')[1];
 
        // Call appropriate function with relevant data
        if (dataDisplayed == "broadCategories") {
@@ -35,10 +35,10 @@ d3.csv("data/crimeData.csv", function(data) {
     });
 
     // Show specific subcategories when bubbles are clicked
-    $(document).on("click", "circle", function() {
+    $(document).on("click", "circle.bubbleCircle", function() {
 
-        // Get class of circles
-        var dataDisplayed = $("circle:gt(1)").attr("class");
+        // Get second class of circle
+        var dataDisplayed = $(".bubbleCircle").attr("class").split(' ')[1];
 
         // Toggle level of specificity
         if (dataDisplayed == "broadCategories") {
@@ -137,7 +137,11 @@ function createBubbleVis(data, classname) {
         .attr("id", function(d) {
             return d.data.key;
         })
-        .attr("class", classname)
+        .attr("class", function(d) {
+            if (d.data.key) {
+                return "bubbleCircle " + classname;
+            }
+        })
         .filter(function(d) {
             return !d.children
         })
@@ -219,7 +223,7 @@ function setColor(id, className) {
         return '#FF00AA';
     } else if (id == 'Robberies' || className == 'Robberies') {
         return '#8B008B';
-    } else if (id == 'Rape' || className == 'Rape') {
+    } else if (id == 'Rapes' || className == 'Rapes') {
         return '#C71585';
     } else return '#2109C9';
 }
