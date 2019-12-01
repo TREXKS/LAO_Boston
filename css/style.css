@@ -27,6 +27,11 @@ h1,h4{
     font-weight:900;
 }
 
+.card {
+  background-color: black;
+  width: 30%;
+}
+
 
 
 .tooltip-title {
@@ -114,13 +119,13 @@ aside{
     text-align:right;
     right:10px;
     font-size:.7em;
-    text-shadow:none; 
+    text-shadow:none;
 }
 
 
 #districtHolder1,#districtHolder2{
     display:inline-block;
-    width:100% 
+    width:100%
 }
 
 
@@ -132,7 +137,7 @@ aside{
 #districtControl{
     width:50%;
     margin:0 auto;
-    margin-bottom:1.5em  
+    margin-bottom:1.5em
 }
 
 .form-control{
@@ -175,7 +180,7 @@ aside{
 
 .brushAxis .tick line{
     display:block;
-    stroke:#191919;    
+    stroke:#191919;
 }
 .brushAxis .domain{
     display:none

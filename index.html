@@ -139,36 +139,23 @@
 
 
         <!-- FREQUENCY - RADIAL Visualization -->
-        <div class="row">
-            <div class="col-lg-12 left">
 
-                <section class="textBlock" id="textFrequency">
-                    Crime presents itself all year round but differs throughout the months. Analyzing trends will assist in prevention and avoidance of certain crimes and minimize the impact they have on the general public. <br><br>
-                <ul>
-                    <li>Why do more car accidents happen in December and September more than any other months?</li><br>
-                    <li>What month holds the highest amount of crime activity?</li>
-                </ul>
-                These visualizations will allow us to ask these questions and begin to explore the relevant crimes around your area. <br><br><aside>*Search by district, crime, or monthly frequency!*</aside>
-                </section>
+				<div class="container" >
+					<div class="radarChart"></div>
 
-								<div id="districtHolder1">
-										<div class="user-control-alt" id="districtControl">
-											<select class="form-control" id="ranking-type">
-												 <option value="homocide">Homocide</option>
-												 <option value="assault">Assault</option>
-												 <option value="robbery">Robbery</option>
-												 <option value="burglary">Burglary</option>
-												 <option value="vandalism">Vandalism</option>
-												 <option value="rape">Rape</option>
-											</select>
-										</div>
-								</div>
-
-            </div>
-
-        </div>
-				<div class="col-lg-4 right">
-						<div class="radarChart" id="vizRadial"></div>
+					<form class="form-inline">
+						 <div class="form-group">
+								<label for="crime-type"></label>
+								<select class="form-control" id="ranking-type">
+									 <option value="homocide">Homocide</option>
+									 <option value="assault">Assault</option>
+									 <option value="robbery">Robbery</option>
+									 <option value="burglary">Burglary</option>
+									 <option value="vandalism">Vandalism</option>
+									 <option value="rape">Rape</option>
+								</select>
+						 </div>
+					</form>
 				</div>
 
 
