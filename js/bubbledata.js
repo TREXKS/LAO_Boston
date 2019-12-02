@@ -8,7 +8,7 @@ function nestByDistricts(data) {
             }
             else if((d.OFFENSE_CODE > 210 && d.OFFENSE_CODE < 272)||
                 (d.OFFENSE_CODE >1700 && d.OFFENSE_CODE < 1732)){
-                return "Rape";
+                return "Rapes";
             }
             else if((d.OFFENSE_CODE > 400 && d.OFFENSE_CODE < 434)||
                 (d.OFFENSE_CODE > 800 && d.OFFENSE_CODE < 804)){
@@ -42,7 +42,7 @@ function nestByType(data) {
             }
             else if((d.OFFENSE_CODE > 210 && d.OFFENSE_CODE < 272)||
                 (d.OFFENSE_CODE >1700 && d.OFFENSE_CODE < 1732)){
-                return "Rape";
+                return "Rapes";
             }
             else if((d.OFFENSE_CODE > 400 && d.OFFENSE_CODE < 434)||
                 (d.OFFENSE_CODE > 800 && d.OFFENSE_CODE < 804)){
@@ -84,7 +84,7 @@ function nestByType(data) {
                     return "Other";
                 // Vandalism
                 case "VANDALISM":
-                    return "Vandalism";
+                    return "Other Vandalism";
                 case "GRAFFITI":
                     return "Graffiti";
                 // Burglary
