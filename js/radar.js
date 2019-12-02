@@ -1,6 +1,6 @@
 
 	var margin = {top: 100, right: 100, bottom: 100, left: 100},
-	radar_width = Math.min(650, window.innerWidth - 10) - margin.left - margin.right,
+	radar_width = Math.min(550, window.innerWidth - 10) - margin.left - margin.right,
 	height = Math.min(radar_width, window.innerHeight - margin.top - margin.bottom - 20);
 
 	var offset = 0;
@@ -92,8 +92,8 @@ function updateVisualization() {
 
 		function RadarChart(id, data, options) {
 			var cfg = {
-				w: 600,				//Width of the circle
-				h: 600,				//Height of the circle
+				w: 400,				//Width of the circle
+				h: 400,				//Height of the circle
 				margin: {top: 20, right: 20, bottom: 20, left: 20}, //The margins of the SVG
 				levels: 3,				//How many levels or inner circles should there be drawn
 				maxValue: 0, 			//What is the value that the biggest circle will represent
@@ -134,11 +134,11 @@ function updateVisualization() {
 		//Initiate the radar chart SVG
 		var svg = d3.select(id).append("svg")
 		.attr("width",  cfg.w + cfg.margin.left + cfg.margin.right)
-		.attr("height", cfg.h + cfg.margin.top + cfg.margin.bottom)
+		.attr("height", cfg.h + cfg.margin.top - 400)
 		.attr("class", "radar"+id);
 		//Append a g element
 		var g = svg.append("g")
-		.attr("transform", "translate(" + (cfg.w/2 + cfg.margin.left) + "," + (cfg.h/2 + cfg.margin.top) + ")");
+		.attr("transform", "translate(" + (cfg.w/2 + cfg.margin.left) + "," + (cfg.margin.top + 150) + ")");
 
 
 	//
