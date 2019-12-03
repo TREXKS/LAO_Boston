@@ -478,7 +478,7 @@
                                 }}}})
                         .style("fill",function(d,b){ 
                             if(d==0){
-                                return "green";
+                                return "#121212";
                             }else{
                                 if (((d/individualCrimeTallies[b])/crimeByDistrictCleaned[i].popPercent)>1){ 
                                 return "rgb(" + Math.round((((d/individualCrimeTallies[b]) / (crimeByDistrictCleaned[i].popPercent))-1)*45) + "," + Math.round((d/individualCrimeTallies[b]-.05)*180) +",200)"
@@ -503,14 +503,14 @@
                                     return -46
                                 }}})
                         .text(function(d,b){
-                            if(d ==0 ||individualCrimeTallies[b] ==0){ return 0;
+                            if(d ==0 ||individualCrimeTallies[b] ==0){ return "NA";
                                 }else{if (parseInt(((((d/individualCrimeTallies[b]) / crimeByDistrictCleaned[i].popPercent))-1)*100)>0){
                                     return "+" +parseInt(((((d/individualCrimeTallies[b]) / crimeByDistrictCleaned[i].popPercent))-1)*100) + "%"
                                 }else{
                                     return parseInt(((((d/individualCrimeTallies[b]) / crimeByDistrictCleaned[i].popPercent))-1)*100) + "%"}}})
                         .attr("x", function(d,b){
                             if(d == 0 || individualCrimeTallies[b] == 0){
-                                return (b*40)+14;
+                                return (b*40)+6;
                             }else{
                                return (b*40)+2;}});
 
