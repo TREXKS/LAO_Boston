@@ -322,7 +322,7 @@ function updateVisualization() {
 				var data2 = [byCrime];
 
 		// WHEN RANKING TYPE IS selected
-				d3.select("#ranking-type")
+				d3.select("#radialTimeControl")
 			    .on("change", function(d) {
 			      console.log(selectBox.property('value'))
 
