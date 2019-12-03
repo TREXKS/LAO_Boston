@@ -9,7 +9,7 @@
 }
 body{
     font-family:'Montserrat-Regular';
-    background-color:#080808;
+    background-color:#121212;
     color:antiquewhite
 }
 
@@ -104,7 +104,7 @@ aside{
         /* individual bar % text style */
         #vizSmBarCharts .rowGroup text.barLabels{ 
             font-size:.8em;
-            fill:#4b4b4b;
+            fill:#717171;
             text-align:center;
 
         }
@@ -252,7 +252,7 @@ aside{
 /* BARS SPECIFIC STUFF */
         #vizSmBarCharts{
             border:none;
-            background-color:#080808;
+            background-color:#121212;
             color:white;
             position:relative;
         }
@@ -266,7 +266,7 @@ aside{
             fill:whitesmoke;
         }
         #vizSmBarCharts .rowGroup .tick text {
-            fill:grey;
+            fill:#b2b2b2;
         }
         .tick line{
             display:none
