@@ -134,7 +134,7 @@ function updateVisualization() {
 		//Initiate the radar chart SVG
 		var svg = d3.select(id).append("svg")
 		.attr("width",  cfg.w + cfg.margin.left + cfg.margin.right)
-		.attr("height", cfg.h + cfg.margin.top - 400)
+		.attr("height", cfg.h + cfg.margin.top)
 		.attr("class", "radar"+id);
 		//Append a g element
 		var g = svg.append("g")
