@@ -5,7 +5,7 @@
     var timeRadialMargin = {top: 20, right: 20, bottom: 20, left: 20};
 
     var timeRadialWidth = 400 - timeRadialMargin.left - timeRadialMargin.right,
-        timeRadialHeight = 410 - timeRadialMargin.top - timeRadialMargin.bottom;
+        timeRadialHeight = 430 - timeRadialMargin.top - timeRadialMargin.bottom;
 
     var svgTimeRadial = d3.select("#vizTimeOfDay").append("svg")
         .attr("width", timeRadialWidth + timeRadialMargin.left + timeRadialMargin.right)
@@ -81,7 +81,7 @@
         var points = [];
         //Set Up The Math for our Radial Graph
         var radialAreaGenerator = d3.radialArea()
-            .curve(d3.curveBasisClosed)
+            .curve(d3.curveCatmullRomClosed)
             .angle(function(d) {
                 return d.angle;
             })
@@ -162,13 +162,15 @@
             radialValueScale.domain([radialTimeMin,radialTimeMax]);
 
                     //console.log(radialTimeMax + " : " +radialTimeMin);
-
+            //generate the points
+            console.log("crimeTime.length = " + crimeTime.length);
             for (i=0;i<crimeTime.length;i++){
                 var timeCoordinate = {}
-                timeCoordinate.angle = Math.PI * (2*(i)/(crimeTime.length-1));
+
+                timeCoordinate.angle = Math.PI * (2*(i/crimeTime.length));
                 timeCoordinate.r0 = 110;
                 timeCoordinate.r1 = 110 + radialValueScale(crimeTime[i].value);
-
+                
                 points.push(timeCoordinate);
             }
                     //console.log("wrangled");
@@ -201,20 +203,20 @@
 
         //Gradient
         radialGradient.append("stop")
-            .attr("offset", "40%")
-            .attr("stop-color", "#0014ba");
+            .attr("offset", "52%")
+            .attr("stop-color", "#001095");
         radialGradient.append("stop")
-            .attr("offset", "55%")
-            .attr("stop-color", "#3c00de");
+            .attr("offset", "60%")
+            .attr("stop-color", "#2c00e3");
         radialGradient.append("stop")
-            .attr("offset", "70%")
+            .attr("offset", "74%")
             .attr("stop-color", "#6f00de");
         radialGradient.append("stop")
-            .attr("offset", "86%")
+            .attr("offset", "87%")
             .attr("stop-color", "#ff0dab")
         radialGradient.append("stop")
             .attr("offset", "91%")
-            .attr("stop-color", "#ff7c7c")
+            .attr("stop-color", "#ff5771")
 
         //Gradient Circle
         svgTimeRadial.append("circle")
@@ -264,7 +266,6 @@
 
         function updateTimeRadial(){
             wrangleData();
-
             svgTimeRadial.selectAll("path#radialPath")
             .transition()
             .duration(500)
