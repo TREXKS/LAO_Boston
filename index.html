@@ -125,7 +125,7 @@
 
 
 				<div class="row">
-						<div class="col-lg-8 left">
+						<div class="col-lg-12 left">
 								 <section class="textBlock" id="textTimeOfDay">
 										<h4> Time of Day:</h4>
 										 <h6>Wrong Place at the Wrong Time</h6>
@@ -135,6 +135,9 @@
 										<br><br>
 										 <strong>We can now see where the crimes are taking place, but when are they occuring?</strong><br>
 										 Are some areas safer at night, in the morning, etc.? By interacting with the data above you can see how different crimes rise and fall throughout the city during the day. Drag your mouse over the timeline next to the drop-down to see how the numbers change.
+										 <br><br>
+									 	 <strong>SELECT a crime</strong><br>
+									 	 Investigate when during the day that crime is most likely to take place  (LEFT) or on what month that crime is most prevelant (RIGHT)
 
 								</section>
 								<br><br><hr><br>
@@ -142,49 +145,39 @@
 
 				</div>
 				<div class="row">
-					<div class="col-lg-5 left">
+						<div class="user-control" style="margin-left: 29%" >
+								<select id="radialTimeControl" class="form-control">
+										<option value="all">All Crime</option>
+										<option value="homicide">Homicide</option>
+										<option value="sexualAssault">Sexual Assault</option>
+										<option value="assault">Assault</option>
+										<option value="robbery">Robbery</option>
+										<option value="burglary">Burglary</option>
+										<option value="vandalism">Vandalism</option>
+								</select>
+						</div>
+				</div>
+				<div class="row">
+					<div class="col-lg-6 left">
 							<div class="row" id="radialTimeTitle">
-									<h5 class="radialTimeTitle">Peak Crime Times - Boston</h5>
+									<h5 class="radialTimeTitle" style="padding-bottom: 8%;">Peak Crime Times - Boston</h5>
 							</div>
 							 <div class="row" id="radialTime">
 									<div class="visualization radialTime" id="vizTimeOfDay">
 									</div>
 							</div>
-							<div class="row">
-									<div class="user-control" >
-											<select id="radialTimeControl" class="form-control">
-													<option value="all">All Crime</option>
-													<option value="homicide">Homicide</option>
-													<option value="sexualAssault">Sexual Assault</option>
-													<option value="assault">Assault</option>
-													<option value="robbery">Robbery</option>
-													<option value="burglary">Burglary</option>
-													<option value="vandalism">Vandalism</option>
-											</select>
-									</div>
-							</div>
+
 					</div>
 
-					<div class="col-lg-5 left">
+					<div class="col-lg-5 left" style="margin-left: 5%;">
 							<div class="row" id="radialTimeTitle">
-									<h5 class="radialTimeTitle">Monthly - Boston</h5>
+									<h5 class="radialTimeTitle" style="margin-left: 40%;">Monthly - Boston</h5>
 							</div>
 							 <div class="row" id="radialTime">
 								 <div class="radarChart"></div>
 
 							</div>
-							<div class="row">
-									<div class="user-control" >
-										<select class="form-control" id="ranking-type">
-											 <option value="homocide">Homicide</option>
-											 <option value="assault">Assault</option>
-											 <option value="robbery">Robbery</option>
-											 <option value="burglary">Burglary</option>
-											 <option value="vandalism">Vandalism</option>
-											 <option value="rape">Rape</option>
-										</select>
-									</div>
-							</div>
+
 					</div>
 
 

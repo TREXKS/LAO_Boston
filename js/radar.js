@@ -1,6 +1,6 @@
 
 	var margin = {top: 100, right: 100, bottom: 100, left: 100},
-	radar_width = Math.min(550, window.innerWidth - 10) - margin.left - margin.right,
+	radar_width = Math.min(500, window.innerWidth - 10) - margin.left - margin.right,
 	height = Math.min(radar_width, window.innerHeight - margin.top - margin.bottom - 20);
 
 	var offset = 0;
@@ -30,7 +30,8 @@
 					.rollup(function(leaves) { return leaves.length; })
 			    .entries(data);
 
-			console.log(byCrime)
+
+			console.log(timeOfDay_sorted)
 
 			var homocide = [byCrime[137].values]
 			var rape = [byCrime[259].values]
@@ -39,7 +40,7 @@
 			var burglary = [byCrime[126].values]
 			var vandalism = [byCrime[2].values]
 
-
+			all_crimes = [timeOfDay_sorted]
 			dataset_homo = homocide;
 			dataset_rape = rape;
 			dataset_assault = assault;
@@ -86,7 +87,7 @@ function updateVisualization() {
 			];
 
 		//Call function to draw the Radar chart
-		RadarChart(".radarChart", dataset_homo, radarChartOptions);
+		RadarChart(".radarChart", all_crimes, radarChartOptions);
 
 	/////////// Inspired by the code of alangrafu ///////////
 
@@ -134,7 +135,7 @@ function updateVisualization() {
 		//Initiate the radar chart SVG
 		var svg = d3.select(id).append("svg")
 		.attr("width",  cfg.w + cfg.margin.left + cfg.margin.right)
-		.attr("height", cfg.h + cfg.margin.top)
+		.attr("height", cfg.h + cfg.margin.top + 100)
 		.attr("class", "radar"+id);
 		//Append a g element
 		var g = svg.append("g")
@@ -311,7 +312,7 @@ function updateVisualization() {
 		});
 		}//wrap
 
-		var selectBox = d3.select("#ranking-type");
+		var selectBox = d3.select("#radialTimeControl");
 
 		var byCrime = d3.nest()
 				.key(function(d) { return d.OFFENSE_DESCRIPTION; })
@@ -325,10 +326,11 @@ function updateVisualization() {
 				d3.select("#radialTimeControl")
 			    .on("change", function(d) {
 			      console.log(selectBox.property('value'))
-
-						if (selectBox.property('value') == 'homocide')
+						if (selectBox.property('value') == 'all')
+							RadarChart(".radarChart", all_crimes, radarChartOptions);
+						if (selectBox.property('value') == 'homicide')
 							RadarChart(".radarChart", dataset_homo, radarChartOptions);
-						if (selectBox.property('value') == 'rape')
+						if (selectBox.property('value') == 'sexualAssault')
 							RadarChart(".radarChart", dataset_rape, radarChartOptions);
 						if (selectBox.property('value') == 'assault')
 							RadarChart(".radarChart", dataset_assault, radarChartOptions);
