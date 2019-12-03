@@ -24,8 +24,8 @@ d3.csv("data/crimeData.csv", function(data) {
     // Update chart when dropdown is changed
     $(".bubblechange").change(function() {
 
-        // Get second class of circle
-       var dataDisplayed = $(".bubbleCircle").attr("class").split(' ')[1];
+        // Get class of circles
+        var dataDisplayed = $(".bubbleCircle").attr("class").split(' ')[1];
 
        // Call appropriate function with relevant data
        if (dataDisplayed == "broadCategories") {
@@ -37,7 +37,7 @@ d3.csv("data/crimeData.csv", function(data) {
     // Show specific subcategories when bubbles are clicked
     $(document).on("click", "circle.bubbleCircle", function() {
 
-        // Get second class of circle
+        // Get class of circles
         var dataDisplayed = $(".bubbleCircle").attr("class").split(' ')[1];
 
         // Toggle level of specificity
@@ -119,7 +119,7 @@ function createBubbleVis(data, classname) {
 
     // Establish transition
     var t = d3.transition()
-        .duration(1000);
+        .duration(1500);
 
 
     // Establish elements in chart

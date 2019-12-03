@@ -124,62 +124,107 @@
 
         </div>
 
+				<div class="row" id="barChartTitle">
+            <h4>Comparing Police Districts<span class="parenthetical"> (6/15/15 - 11/15/19) </span>:</h4>
+            <h5 id="dataType">Percent of Total Incidents Attributed to Each District</h5>
+        </div>
+        <div class="row" id="barChartContainer">
+            <div class="visualization smBarCharts" id="vizSmBarCharts">
+                <div class="user-control" >
+                    <select id="barsControl1" class="form-control">
+                        <option value="city_percentage">% of Incidents Citywide</option>
+                        <option value="perCapita_average">Per Capita Variation from Average </option>
+                    </select>
+                </div>
+            </div>
+
+        </div>
+
+
 				<div class="row">
-						<div class="visualization smBarCharts" id="vizSmBarCharts">
-								<div class="user-control" >
-										<select id="barsControl1" class="form-control">
-												<option value="city_percentage">% of Incidents Citywide</option>
-												<option value="perCapita_average">Per Capita Variation from Average </option>
-										</select>
-								</div>
+						<div class="col-lg-8 left">
+								 <section class="textBlock" id="textTimeOfDay">
+										<h4> Time of Day:</h4>
+										 <h6>Wrong Place at the Wrong Time</h6>
+										The<strong> City of Boston</strong> is broken up 12 police districts. Each has its own set of challenges for police to face. In the above visual we display the 6 major types of crime and break out the reports per district.
+										<br><br>
+										From the initial view, you'd think that Dorchester and Roxbury have the highest crime rate. But, this view is only showing you the total percentage of city-wide crime. It does not account for population. Switch the view using the drop-down and see how the values change. Notice Dorchester, which previously looked like a high-crime area, is now below average for every type of crime shown.
+										<br><br>
+										 <strong>We can now see where the crimes are taking place, but when are they occuring?</strong><br>
+										 Are some areas safer at night, in the morning, etc.? By interacting with the data above you can see how different crimes rise and fall throughout the city during the day. Drag your mouse over the timeline next to the drop-down to see how the numbers change.
+
+								</section>
+								<br><br><hr><br>
 						</div>
 
 				</div>
+				<div class="row">
+					<div class="col-lg-5 left">
+							<div class="row" id="radialTimeTitle">
+									<h5 class="radialTimeTitle">Peak Crime Times - Boston</h5>
+							</div>
+							 <div class="row" id="radialTime">
+									<div class="visualization radialTime" id="vizTimeOfDay">
+									</div>
+							</div>
+							<div class="row">
+									<div class="user-control" >
+											<select id="radialTimeControl" class="form-control">
+													<option value="all">All Crime</option>
+													<option value="homicide">Homicide</option>
+													<option value="sexualAssault">Sexual Assault</option>
+													<option value="assault">Assault</option>
+													<option value="robbery">Robbery</option>
+													<option value="burglary">Burglary</option>
+													<option value="vandalism">Vandalism</option>
+											</select>
+									</div>
+							</div>
+					</div>
+
+					<div class="col-lg-5 left">
+							<div class="row" id="radialTimeTitle">
+									<h5 class="radialTimeTitle">Monthly - Boston</h5>
+							</div>
+							 <div class="row" id="radialTime">
+								 <div class="radarChart"></div>
+
+							</div>
+							<div class="row">
+									<div class="user-control" >
+										<select class="form-control" id="ranking-type">
+											 <option value="homocide">Homocide</option>
+											 <option value="assault">Assault</option>
+											 <option value="robbery">Robbery</option>
+											 <option value="burglary">Burglary</option>
+											 <option value="vandalism">Vandalism</option>
+											 <option value="rape">Rape</option>
+										</select>
+									</div>
+							</div>
+					</div>
+
+
+
+
+				</div>
+
+
 
 
 
         <!-- FREQUENCY - RADIAL Visualization -->
-        <div class="row">
-            <div class="col-lg-12 left">
-
-                <section class="textBlock" id="textFrequency">
-                    Crime presents itself all year round but differs throughout the months. Analyzing trends will assist in prevention and avoidance of certain crimes and minimize the impact they have on the general public. <br><br>
-                <ul>
-                    <li>Why do more car accidents happen in December and September more than any other months?</li><br>
-                    <li>What month holds the highest amount of crime activity?</li>
-                </ul>
-                These visualizations will allow us to ask these questions and begin to explore the relevant crimes around your area. <br><br><aside>*Search by district, crime, or monthly frequency!*</aside>
-                </section>
-
-								<div id="districtHolder1">
-										<div class="user-control-alt" id="districtControl">
-											<select class="form-control" id="ranking-type">
-												 <option value="homocide">Homocide</option>
-												 <option value="assault">Assault</option>
-												 <option value="robbery">Robbery</option>
-												 <option value="burglary">Burglary</option>
-												 <option value="vandalism">Vandalism</option>
-												 <option value="rape">Rape</option>
-											</select>
-										</div>
-								</div>
-
-            </div>
-
-        </div>
-				<div class="col-lg-4 right">
-						<div class="radarChart" id="vizRadial"></div>
-				</div>
 
 
         <!-- FREQUENCY -TEXT -->
         <div class="row frequencyText">
 
             <section class="textBlock" id="textTime">
-                <h4> Frequency of Crimes:</h4>
+                <h4> Frequency of Crimes: A Closer Look</h4>
                 <br>
                 <ul>
                     <li>What types of crimes are most common in specific Boston neighborhoods?</li>
+					<li>What subcategories of crime are most common in these neighborhoods?</li>
                     <li>How has this changed since 2015? </li>
                 </ul>
             </section>
@@ -226,11 +271,13 @@
             <div class="col-lg-4 right">
                  <section class="textBlock" id="textTime">
 					 <p>
-						 SELECT a neighborhood and year from the dropdown to compare quantities of each crime type. The bubbles will shift when one category overtakes another.
+						 SELECT a neighborhood and year from the dropdown to compare quantities of each crime type. The bubbles
+						 will shift when one category overtakes another.
 						 <br><br>
 						 CLICK on a bubble for more details about a category. Click again to return to the main view.
 						 <br><br>
-						 For many neighborhoods, such as Roxbury, Mattapan, and South End, the total number of crimes skyrocketed between 2015 and 2016.
+						 For many neighborhoods, such as Roxbury, Mattapan, and South End, the total number of crimes skyrocketed
+						 between 2015 and 2016.
 						 <br><br>
 						 Roxbury has the greatest number of crimes, especially in more serious crime categories such as Homicides and Rapes.
 					 </p>
@@ -270,6 +317,7 @@
 		<script src="js/choropleth.js"></script>
 		<script src="js/bubbledata.js"></script>
 		<script src="js/bubblechart.js"></script>
+		<script src="js/time-radial.js"></script>
 
 
 </body>
