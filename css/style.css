@@ -1,24 +1,31 @@
+/*********/
+/* Fonts */
+/*********/
 
 @font-face {
     font-family: 'Roboto-Regular';
     src: url(../fonts/Roboto/Roboto-Regular.ttf) format('truetype');
 }
+
 @font-face {
     font-family: 'Montserrat-Regular';
     src: url(../fonts/Montserrat/Montserrat-Regular.ttf) format('truetype');
 }
+
+
+/********************/
+/* Body and headers */
+/********************/
+
 body{
     font-family:'Montserrat-Regular';
     background-color:#121212;
     color:antiquewhite
 }
 
-
-
 h1, h2, h3, h4, h5, h6{
     color:white;
 }
-
 
 h4,h6,h1{
     font-family:'Roboto-Regular';
@@ -28,7 +35,102 @@ h1,h4{
     font-weight:900;
 }
 
+.row{
+    margin-top:2em
+}
 
+aside{
+    font-size:.9em;
+    color:gray;
+    float:right;
+}
+
+.left{
+    padding-left:0
+}
+
+.footer{
+    min-height:8em;
+}
+
+
+/*************/
+/* Jumbotron */
+/*************/
+
+.jumbotron-fluid{
+    width:100%;
+    color:white;
+    text-shadow: black 4px 4px 4px;
+}
+
+.jumbotron {
+    background-image: url("../img/skyline.jpg");
+    background-size: cover;
+    position:relative;
+}
+
+.photoCredit{
+    color:#5e5e96;
+    position:absolute;
+    top:10px;
+    text-align:right;
+    right:10px;
+    font-size:.7em;
+    text-shadow:none;
+}
+
+
+/****************************/
+/* Visualizations (General) */
+/****************************/
+
+.visualization{
+    min-height:200px;
+    width:100%
+}
+
+.user-control{
+    max-width:30%;
+    float:left;
+    padding:0 .5em;
+}
+
+.form-control {
+    color: white;
+    background-color: #080808;
+    border: 1px #213879 solid;
+    font-size: .9em;
+}
+
+.instructions{
+    font-size:.8em
+}
+
+.smImage{
+    object-fit:cover;
+    width:100%;
+}
+
+#districtHolder1,#districtHolder2{
+    display:inline-block;
+    width:100%
+}
+
+#districtControl{
+    width:50%;
+    margin:0 auto;
+    margin-bottom:1.5em
+}
+
+#textTime{
+    padding-right:7em;
+}
+
+
+/************/
+/* Tooltips */
+/************/
 
 .tooltip-title {
   display: block;
@@ -45,251 +147,196 @@ h1,h4{
   font-size:10px;
 }
 
-.jumbotron-fluid{
-    width:100%;
-    color:white;
-    text-shadow: black 4px 4px 4px;
-}
-.jumbotron {
-  background-image: url("../img/skyline.jpg");
-  background-size: cover;
-}
-
-
-.row{
-    margin-top:2em
-}
-
-
-aside{
-    font-size:.9em;
-    color:gray;
-    float:right;
-}
-
-.left{
-    padding-left:0
-}
-
-
-.visualization{
-    min-height:200px;
-    width:100%
+.maptooltip {
+    line-height: 1;
+    font-weight: bold;
+    padding: 12px;
+    background: #fff;
+    color: black;
+    border-radius: 2px;
+    text-align: center;
 }
 
 
 
-/* MJG Addition to Choropleth 12/1 */
+/**************/
+/* Choropleth */
+/**************/
 
-        #vizChoropleth_top{  /* levels top of visual with text */
-            margin-top:-50px
-        }
+/* MJG Additions to Choropleth 12/1 */
 
-        #chorlplethControls{ /* moves controls to bottom right */
-            margin-top:-80px;
-            margin-left:280px;
-        }
+#vizChoropleth_top{  /* levels top of visual with text */
+    margin-top:-50px
+}
 
-        #choroplethCrime{ /* size the wider dropdown to fit text */
-            width:160px;
-            margin-right:
-        }
+#chorlplethControls{ /* moves controls to bottom right */
+    margin-top:-80px;
+    margin-left:280px;
+}
 
-        #choroplethLoD{ /* pushes percapita over a bit */
-            margin-left:35px
-        }
+#choroplethCrime{ /* size the wider dropdown to fit text */
+    width:160px;
+    margin-right:
+}
 
+#choroplethLoD{ /* pushes percapita over a bit */
+    margin-left:35px
+}
+
+
+/*************/
+/* Bar Chart */
+/*************/
 
 /* MJG Addition to Bar Chart 12/1 */
 
-        /* individual bar % text style */
-        #vizSmBarCharts .rowGroup text.barLabels{ 
-            font-size:.8em;
-            fill:#717171;
-            text-align:center;
-
-        }
-        /* fixed dropdown/user control active and focus states (black) */
-        .form-control, .form-control:active, .form-control:focus ,.form-control option{
-            color:white;
-            background-color:#080808;
-            border:1px #213879 solid;
-            font-size:.9em;
-        }
-        /*Visual subtitle(that changes)*/
-        #dataType{ 
-            clear:left;
-            float:left;
-            display:inline-block;
-            width:100%
-        }
-        /*pulls vis closer to title. */
-        #barChartContainer{ 
-            margin-top:0;
-        }
-        /* adds a line to the left */
-        #barChartTitle{ 
-            border-left:1px grey solid;
-            padding-left:30px
-        }
-        /* adds a line to the left */
-        #barChartContainer{
-            border-left:1px grey solid;
-        }
-        .parenthetical{
-                color:#b7b2b2;
-                font-weight:100;
-                font-size:.8em;
-            }
-/* MJG Addition to Time Radial Chart (Coffee cup stain) */
-        #radialTime{
-            padding-top:0;
-            margin-top:-20px;
-            padding-bottom:0;
-            margin-bottom:0;
-        }
-
-        #radialTimeControl{
-            width:auto;
-            margin-left:100px;
-            margin-top:-40px;
-
-        }
-        #radialTime{
-            padding-top:0;
-            margin-top:-20px;
-            margin-left:20px;
-            padding-bottom:0;
-            margin-bottom:0;
-        }
-
-        #radialTimeControl{
-            width:auto;
-            margin-left:160px;
-            margin-top:-20px;
-
-        }
-        #textTimeOfDay{
-            margin-right:80
-        }
-        
-        .smallLabel{
-            fill:#414141;
-            font-size:.8em;
-        }
-        .hour{
-            fill:#838383;
-            font-size:.8em;
-        }
-        .radialTimeTitle{
-            margin-left:104px;
-            margin-bottom:20px;
-        }
-
-
-#textTime{
-    padding-right:7em;
+/* individual bar % text style */
+#vizSmBarCharts .rowGroup text.barLabels{
+    font-size:.8em;
+    fill:#717171;
+    text-align:center;
 }
 
-
-.instructions{
-    font-size:.8em
-}
-
-
-.user-control{
-    max-width:30%;
-    float:left;
-    padding:0 .5em;
-}
-
-
-.smImage{
-    object-fit:cover;
-        width:100%;
-}
-
-
-.jumbotron{
-    position:relative;
-}
-
-
-.photoCredit{
-    color:#5e5e96;
-    position:absolute;
-    top:10px;
-    text-align:right;
-    right:10px;
-    font-size:.7em;
-    text-shadow:none; 
-}
-
-
-#districtHolder1,#districtHolder2{
-    display:inline-block;
-    width:100% 
-}
-
-
-.footer{
-    min-height:8em;
-}
-
-
-#districtControl{
-    width:50%;
-    margin:0 auto;
-    margin-bottom:1.5em  
-}
-
-.form-control{
+/* fixed dropdown/user control active and focus states (black) */
+.form-control, .form-control:active, .form-control:focus ,.form-control option{
     color:white;
     background-color:#080808;
     border:1px #213879 solid;
     font-size:.9em;
 }
 
+/*Visual subtitle(that changes)*/
+#dataType{
+    clear:left;
+    float:left;
+    display:inline-block;
+    width:100%
+}
+
+/*pulls vis closer to title. */
+#barChartContainer{
+    margin-top:0;
+}
+
+/* adds a line to the left */
+#barChartTitle{
+    border-left:1px grey solid;
+    padding-left:30px
+}
+
+/* adds a line to the left */
+#barChartContainer{
+    border-left:1px grey solid;
+}
+
+.parenthetical{
+    color:#b7b2b2;
+    font-weight:100;
+    font-size:.8em;
+}
+
 /* BARS SPECIFIC STUFF */
-        #vizSmBarCharts{
-            border:none;
-            background-color:#121212;
-            color:white;
-            position:relative;
-        }
-        #vizSmBarCharts .form-control{
-            position:absolute;
-            width:293px;
-            bottom:52px;
-            left:20px
-        }
-        #vizSmBarCharts .rowGroup text {
-            fill:whitesmoke;
-        }
-        #vizSmBarCharts .rowGroup .tick text {
-            fill:#b2b2b2;
-        }
-        .tick line{
-            display:none
-        }
-        .brushAxis{
-            font-family:'Roboto-Regular';
-            font-size:.8em;
-            font-weight:100;
+#vizSmBarCharts{
+    border:none;
+    background-color:#121212;
+    color:white;
+    position:relative;
+}
 
-        }
-        .brush rect.overlay{
-            fill:black;
-            stroke:#111111;
-        }
+#vizSmBarCharts .form-control{
+    position:absolute;
+    width:293px;
+    bottom:52px;
+    left:20px
+}
 
-        .brushAxis .tick line{
-            display:block;
-            stroke:#191919;    
-        }
-        .brushAxis .domain{
-            display:none
-        }
-        rect.handle{
-            stroke:aqua
-        }
+#vizSmBarCharts .rowGroup text {
+    fill:whitesmoke;
+}
+
+#vizSmBarCharts .rowGroup .tick text {
+    fill:#b2b2b2;
+}
+
+.tick line{
+    display:none
+}
+
+.brushAxis{
+    font-family:'Roboto-Regular';
+    font-size:.8em;
+    font-weight:100;
+}
+
+.brush rect.overlay{
+    fill:black;
+    stroke:#111111;
+}
+
+.brushAxis .tick line{
+    display:block;
+    stroke:#191919;
+}
+
+.brushAxis .domain{
+    display:none
+}
+
+rect.handle{
+    stroke:aqua
+}
+
+
+/***************************/
+/* Coffee Cup Radial Chart */
+/***************************/
+
+/* MJG Addition to Time Radial Chart (Coffee cup stain) */
+
+#radialTime{
+    padding-top:0;
+    margin-top:-20px;
+    padding-bottom:0;
+    margin-bottom:0;
+}
+
+#radialTimeControl{
+    width:auto;
+    margin-left:100px;
+    margin-top:-40px;
+}
+
+#radialTime{
+    padding-top:0;
+    margin-top:-20px;
+    margin-left:20px;
+    padding-bottom:0;
+    margin-bottom:0;
+}
+
+#radialTimeControl{
+    width:auto;
+    margin-left:160px;
+    margin-top:-20px;
+}
+
+#textTimeOfDay{
+    margin-right:80
+}
+        
+.smallLabel{
+    fill:#414141;
+    font-size:.8em;
+}
+
+.hour{
+    fill:#838383;
+    font-size:.8em;
+}
+
+.radialTimeTitle{
+    margin-left:104px;
+    margin-bottom:20px;
+}
+
+

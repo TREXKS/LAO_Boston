@@ -28,11 +28,11 @@ var path = d3.geoPath()
 
 
 // Create tooltip
-var tip = d3.tip()
-    .attr("class", "tooltip")
-    .offset([-5, 0]);
+var maptip = d3.tip()
+    .attr("class", "maptooltip")
+    .offset([10, 120]);
 
-mapsvg.call(tip);
+mapsvg.call(maptip);
 
 
 
@@ -197,21 +197,23 @@ function updateChoropleth() {
             if (whichlod == "perCapita"){
                 return Math.round(100000*(d.value[whichvar]/d.value["areapop"]));
             }})])
-        .range(["#2109c9", "#4c01d5", "#6c16ca", "#9015c5", "#f524c8"]);
+        //.range(["#2109c9", "#4c01d5", "#6c16ca", "#9015c5", "#f524c8"]); "#434fe6", "#974be9",
+        .range(["#1600b0", "#3a18f4", "#7a13ff", "#8410b6", "#f524c8"]);
+
 
 
 
     // Information shown in the tooltip
     // e.g. of d.properties.DISTRICT: geodistrict[0].properties.DISTRICT = "A15"
-    tip.html(function (d) {
+    maptip.html(function (d) {
         var dataRow = DatabyDistrict[d.properties.DISTRICT];
         var format = d3.format(",");
 
         if (whichlod == "Total"){
-            return dataRow.area + ": " + format(dataRow["value"][whichvar]);
+            return dataRow.area + ": " + format(dataRow["value"][whichvar]) + " Crimes";
         }
         if (whichlod == "perCapita"){
-            return dataRow.area + ": " + format(Math.round(100000*(dataRow["value"][whichvar])/(dataRow.value.areapop)));
+            return dataRow.area + ": " + format(Math.round(100000*(dataRow["value"][whichvar])/(dataRow.value.areapop))) + " Crimes" + "<br/>" + "per 100,000 People";
         }
     });
 
@@ -227,10 +229,21 @@ function updateChoropleth() {
             if (whichlod == "perCapita"){
                 return mapcolor(Math.round(100000*((DatabyDistrict[d.properties.DISTRICT])["value"][whichvar])/((DatabyDistrict[d.properties.DISTRICT])["value"]["areapop"])));
             }
+
         });
 
-    mapupdt.on("mouseover", tip.show)
-        .on("mouseout", tip.hide);
+    mapupdt.on("mouseover", function(d){
+            maptip.show(d);
+            d3.select(this.parentNode.appendChild(this)).transition().duration(500)
+              .attr("stroke", "white").attr("stroke-width", 2);
+        })
+        .on("mouseout", function(d){
+            maptip.hide(d);
+
+            d3.select(this.parentNode.appendChild(this)).transition().duration(500)
+                .attr("stroke", "#333");
+        });
+
 
     // Create legend
     var maplegend = mapsvg.selectAll("g.maplegendentry")
@@ -370,3 +383,5 @@ function varsformap(){
     console.log(whichvar);
     console.log(whichlod);
 }
+
+
