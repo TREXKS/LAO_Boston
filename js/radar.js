@@ -30,9 +30,6 @@
 					.rollup(function(leaves) { return leaves.length; })
 			    .entries(data);
 
-
-			console.log(timeOfDay_sorted)
-
 			var homocide = [byCrime[137].values]
 			var rape = [byCrime[259].values]
 			var assault = [byCrime[0].values]
@@ -117,8 +114,6 @@ function updateVisualization() {
 
 		//If the supplied maxValue is smaller than the actual one, replace by the max in the data
 		var maxValue = Math.max(cfg.maxValue, d3.max(data, function(i){return d3.max(i.map(function(d){return d.value;}))}));
-		console.log(data[0])
-		console.log(month)
 
 		var allAxis = (month.map(function(i, j){return i.month})),	//Names of each axis
 		total = allAxis.length,					//The number of different axes
@@ -303,7 +298,6 @@ function updateVisualization() {
 		// WHEN RANKING TYPE IS selected
 				d3.select("#radialTimeControl")
 			    .on("change", function(d) {
-			      console.log(selectBox.property('value'))
 						if (selectBox.property('value') == 'all')
 							RadarChart(".radarChart", all_crimes, radarChartOptions);
 						if (selectBox.property('value') == 'homicide')
@@ -367,7 +361,6 @@ function updateVisualization() {
 							.call(wrap, cfg.wrapWidth);
 
 			  });
-				console.log(dataset_homo)
 
 		}//RadarChart
 		function showEdition(d){
