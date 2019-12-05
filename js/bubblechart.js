@@ -37,6 +37,9 @@ d3.csv("data/crimeData.csv", function(data) {
     // Show specific subcategories when bubbles are clicked
     $(document).on("click", "circle.bubbleCircle", function() {
 
+        // Disable circle to prevent another click during transition
+        $("circle.bubbleCircle").click(false);
+
         // Get class of circles
         var dataDisplayed = $(".bubbleCircle").attr("class").split(' ')[1];
 
@@ -119,7 +122,7 @@ function createBubbleVis(data, classname) {
 
     // Establish transition
     var t = d3.transition()
-        .duration(1500);
+        .duration(1000);
 
 
     // Establish elements in chart
