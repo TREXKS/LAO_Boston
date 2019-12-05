@@ -180,8 +180,8 @@ function updateVisualization() {
 		.attr("x", 4)
 		.attr("y", function(d){return -d*radius/cfg.levels;})
 		.attr("dy", "0.4em")
-		.style("font-size", "15px")
-		.attr("fill", "#ffffff")
+		.style("font-size", "18px")
+		.attr("fill", "white")
 		.text(function(d,i) { return Format(maxValue * d/cfg.levels); });
 
 
@@ -200,14 +200,14 @@ function updateVisualization() {
 		.attr("x2", function(d, i){ return rScale(maxValue*1.1) * Math.cos(angleSlice*i  - Math.PI/2 - offset); })
 		.attr("y2", function(d, i){ return rScale(maxValue*1.1) * Math.sin(angleSlice*i  - Math.PI/2 - offset); })
 		.attr("class", "line")
-		.style("stroke", "white")
-		.style("stroke-width", "2px");
+		.style("stroke", "grey")
+		.style("stroke-width", "1px");
 
 		//Append the labels at each axis
 		axis.append("text")
 		.attr("class", "legend")
 		.style("font-size", "15px")
-		.style("stroke", "white")
+		.style("fill", "antiquewhite")
 		.attr("text-anchor", "middle")
 		.attr("dy", "0.35em")
 		.attr("x", function(d, i){ return rScale(maxValue * cfg.labelFactor) * Math.cos(angleSlice*i  - Math.PI/2 - offset); })
