@@ -1,5 +1,5 @@
 (function(){
-    // VISUALIZATION SET-UP for SET OF BAR CHARTS 
+    // VISUALIZATION SET-UP for SET OF BAR CHARTS
 
     // SVG AREA -------------------------------------------------------------
     var timeRadialMargin = {top: 20, right: 20, bottom: 20, left: 20};
@@ -74,7 +74,7 @@
         // SET TIME INCREMENT (we are using 15 minute increments)
         for(c=0;c<data.length;c++){
             var formattedDate = parseTime(data[c].OCCURRED_ON_DATE);
-            data[c].halfHour = Math.floor(((parseInt((getHour(formattedDate))*60))+(parseInt(getMinute(formattedDate))))/30) // the last denominator is minutes 
+            data[c].halfHour = Math.floor(((parseInt((getHour(formattedDate))*60))+(parseInt(getMinute(formattedDate))))/30) // the last denominator is minutes
         }
 
         //An Empty Container to Hold the Path
@@ -133,8 +133,8 @@
                   .rollup(function(code) { return code.length})
                   .entries(dataset);
 
-                    //console.log("crimeTime");        
-                    //console.log(crimeTime); 
+                    //console.log("crimeTime");
+                    //console.log(crimeTime);
 
             // Sort data by time
             crimeTime.sort(function(a,b){
@@ -152,7 +152,7 @@
             }
                     //console.log("crimeTime");
                     //console.log(crimeTime);
-            
+
             //empty out our points array
             points = [];
 
@@ -170,14 +170,14 @@
                 timeCoordinate.angle = Math.PI * (2*(i/crimeTime.length));
                 timeCoordinate.r0 = 110;
                 timeCoordinate.r1 = 110 + radialValueScale(crimeTime[i].value);
-                
+
                 points.push(timeCoordinate);
             }
                     //console.log("wrangled");
 
             pathData = radialAreaGenerator(points);
 
-        } //end wrangleData 
+        } //end wrangleData
 
 
         var pathData = radialAreaGenerator(points);
@@ -225,10 +225,10 @@
             .attr("r", 220)
             .attr("clip-path","url(#circleClip)")
             .style("fill", "url(#radial-gradient)");
-        
+
         // Axis
         var radialAxisData = ["12a","1a","2a","3a","4a","5a","6a","7a","8a","9a","10a","11a","12p","1p","2p","3p","4p","5p","6p","7p","8p","9p","10p","11p"];
-        
+
         svgTimeRadial.selectAll(".hour-label")
             .data(radialAxisData)
             .enter()
@@ -260,15 +260,15 @@
             })
             .style("stroke","rgba(8, 8, 8, 0.4)")
             .style("stroke-width",1);
-            
-        
+
+
         // UPDATE TIME RADIAL --------------------------------------------------------
 
         function updateTimeRadial(){
             wrangleData();
             svgTimeRadial.selectAll("path#radialPath")
             .transition()
-            .duration(500)
+            .duration(1500)
             .attr('d', pathData);
 
 

@@ -28,11 +28,10 @@
         </div>
 
         <div class="row intro">
-            <h4>Overview of City Crime Data</h4>
+            <h4>Visiting Boston?</h4>
 
             <section class="textBlock" id="textOverview">
-                In today’s data-driven world, city governments collect vast amounts of information about every aspect of public life. Crime data, in particular, can help cities take steps to improve the personal and social well-being of their citizens. Knowing where and when most crime happens can allow cities to allocate more resources at necessary places and times to maximize public safety.<br><br>
-                In addition, knowing the most common types of crime in a given area can help cities prepare security forces against new and emerging threats. What are the crime trends in this beautiful city we call our home? As Boston residents ourselves, we hope that our project will illuminate crime patterns for all those in the Boston area.
+							Are you a student, tourist, or newcomer to Boston? Law and Order: Boston's visualization gallery is here to help you explore all the information you need to keep yourself safe!  Browse real data and explore recent crime trends (June 2015 to November 2019). As Boston residents ourselves, we hope our project will illuminate crime patterns and help keep others out of harm’s way.
 
             </section>
         </div>
@@ -51,12 +50,13 @@
         <div class="row">
             <div class="col-lg-4 left">
                 <section class="textBlock" id="textChoropleth">
-                    <h4>Caught Red-Handed</h4>
-                    <p>The map to the right is colored by the number of crimes in each Boston police district. Use the dropdowns to specify years and types of crime you would like to investigate. Hover over a district to display the number of specified crimes for specified years.
+                    <h4>Where Do Crimes Occur?</h4>
+                    <p>Certain crimes, such as homicide, happen predominantly in only a couple neighborhoods. Others, like burglary, are distributed pretty evenly throughout Boston. The bottom line is that Boston is a safe city, but in any city, it’s necessary to exercise caution.
+
                         <br><br>
-                    There are certain neighborhoods that Bostonians historically think of as crime-ridden. Are these perceptions rooted in reality, or are they stereotypes? And how much does type of crime affect these perceptions? Certain crimes, such as homicide, happen predominantly in only a couple neighborhoods. Others, like burglary, are distributed pretty evenly throughout Boston.
+												The map to the right is colored by the number of crimes in each Boston district. SELECT a year and type of crime from the dropdowns to investigate the crimes by district (and to compare total counts versus per capita rates). HOVER over a district to display the number of specified crimes for specified years.
+
                         <br><br>
-                    How accurate are your perceptions of Boston crime?
                     </p>
                 </section>
 
@@ -108,9 +108,11 @@
 
         <br><br><br>
         <div class="row" id="barChartTitle">
-            <h4>Comparing Police Districts<span class="parenthetical"> (6/15/15 - 11/15/19) </span>:</h4>
+            <h4>Comparing Districts<span class="parenthetical"> (6/15/15 - 11/15/19) </span>:</h4>
             <h5 id="dataType">Percent of Total Incidents Attributed to Each District</h5>
         </div>
+				<p style="">The bar charts below compare districts in terms of percent of citywide incidents and per capita variation from the average number of incidents, both by type of crime. SELECT a measure to update the bars. Use the BRUSH to filter by times of day. HOVER over a bar to view the number of incidents.
+				</p>
         <div class="row" id="barChartContainer">
             <div class="visualization smBarCharts" id="vizSmBarCharts">
                 <div class="user-control" >
@@ -121,23 +123,25 @@
                 </div>
             </div>
 
+
         </div>
+
 
 
 				<div class="row">
 						<div class="col-lg-12 left">
 								 <section class="textBlock" id="textTimeOfDay">
-										<h4> Time of Day:</h4>
-										 <h6>Wrong Place at the Wrong Time</h6>
 										The<strong> City of Boston</strong> is broken up 12 police districts. Each has its own set of challenges for police to face. In the above visual we display the 6 major types of crime and break out the reports per district.
 										<br><br>
 										From the initial view, you'd think that Dorchester and Roxbury have the highest crime rate. But, this view is only showing you the total percentage of city-wide crime. It does not account for population. Switch the view using the drop-down and see how the values change. Notice Dorchester, which previously looked like a high-crime area, is now below average for every type of crime shown.
 										<br><br>
+										<h4> Are You A Night Owl? Snowbird?</h4>
+										 <h6>Wrong Place at the Wrong Time</h6>
 										 <strong>We can now see where the crimes are taking place, but when are they occuring?</strong><br>
 										 Are some areas safer at night, in the morning, etc.? By interacting with the data above you can see how different crimes rise and fall throughout the city during the day. Drag your mouse over the timeline next to the drop-down to see how the numbers change.
 										 <br><br>
-									 	 <strong>SELECT a crime</strong><br>
-									 	 Investigate when during the day that crime is most likely to take place  (LEFT) or on what month that crime is most prevelant (RIGHT)
+									 	 <strong>Investigate when crime is most likely to take place, by the time of day (left) and month of year (right). SELECT a type of crime from the dropdown to filter crimes.</strong><br>
+										 Not suprising to see Robbery events happen late at night. What trends can you find?
 
 								</section>
 								<br><br><hr><br>
@@ -160,7 +164,7 @@
 				<div class="row">
 					<div class="col-lg-6 left">
 							<div class="row" id="radialTimeTitle">
-									<h5 class="radialTimeTitle" style="padding-bottom: 8%;">Peak Crime Times - Boston</h5>
+									<h5 class="radialTimeTitle" style="padding-bottom: 8%; margin-left: 30%;">Time of Day</h5>
 							</div>
 							 <div class="row" id="radialTime">
 									<div class="visualization radialTime" id="vizTimeOfDay">
@@ -171,7 +175,7 @@
 
 					<div class="col-lg-5 left" style="margin-left: 5%;">
 							<div class="row" id="radialTimeTitle">
-									<h5 class="radialTimeTitle" style="margin-left: 40%;">Monthly - Boston</h5>
+									<h5 class="radialTimeTitle" style="margin-left: 45%;">Month of Year</h5>
 							</div>
 							 <div class="row" id="radialTime">
 								 <div class="radarChart"></div>
@@ -196,10 +200,11 @@
         <div class="row frequencyText">
 
             <section class="textBlock" id="textTime">
-                <h4> Frequency of Crimes: A Closer Look</h4>
+                <h4> A Closer Look</h4>
                 <br>
                 <ul>
-                    <li>What types of crimes are most common in specific Boston neighborhoods?</li>
+                    <li>What specific kinds of crime are occurring? Assaults are the most common crime in many districts, followed by vandalism. Robbery and burglary counts tend to reflect how residential or commercial a district is.
+</li>
 					<li>What subcategories of crime are most common in these neighborhoods?</li>
                     <li>How has this changed since 2015? </li>
                 </ul>
@@ -267,9 +272,10 @@
         <div class="row">
             <section class="textBlock" id="textTime">
             <h4> Conclusion</h4>
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
-            <br><br>
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
+						Crimes will take place in any major city, so it’s always important to exercise caution and be aware of your surroundings. If you are traveling, studying, or looking for a new place to live, understanding crime trends can help keep you safe; we hope our site has helped you feel more knowledgeable as you prepare to embark to Boston!
+
+		DON'T FORGET: If you see a crime in your neighborhood call your local police department here (https://bpdnews.com/districts)
+
             </section>
         </div>
 

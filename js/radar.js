@@ -161,7 +161,6 @@ function updateVisualization() {
 		.enter()
 		.append("circle")
 
-		.transition().duration(1000)
 
 		.attr("class", "gridCircle")
 		.attr("r", function(d, i){return radius/cfg.levels*d;})
@@ -244,28 +243,7 @@ function updateVisualization() {
 		.attr("d", function(d,i) { return radarLine(d); })
 		.style("fill", '#FF28CD')
 		.style("fill-opacity", cfg.opacityArea)
-		.on('mouseover', function (d,i){
-		//Dim all blobs
-		d3.selectAll(".radarArea")
-		.transition().duration(200)
-		.style("fill-opacity", 0.1);
-		//Bring back the hovered over blob
-		d3.select(this)
-		.transition().duration(200)
-		.style("fill-opacity", 0.7);
-		})
-		.on('mouseout', function(){
-		//Bring back all blobs
-		d3.selectAll(".radarArea")
-		.transition().duration(200)
-		.style("fill-opacity", cfg.opacityArea);
-		})
-		.on('click', function(d){
-			d3.selectAll(".radarArea")
-			.transition().duration(200)
-			.style("fill", '#8917CE')
-			 showEdition(d)
-		});
+
 
 		//Create the outlines
 		blobWrapper.append("path")
