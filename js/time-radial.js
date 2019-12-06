@@ -1,5 +1,5 @@
 (function(){
-    // VISUALIZATION SET-UP for SET OF BAR CHARTS
+    // VISUALIZATION SET-UP for SET OF BAR CHARTS 
 
     // SVG AREA -------------------------------------------------------------
     var timeRadialMargin = {top: 20, right: 20, bottom: 20, left: 20};
@@ -71,41 +71,35 @@
             getMinute = d3.timeFormat("%M");
 
 
-        // SET TIME INCREMENT (we are using 15 minute increments)
+        // SET TIME INCREMENT (we are using 30 minute increments)
         for(c=0;c<data.length;c++){
             var formattedDate = parseTime(data[c].OCCURRED_ON_DATE);
-            data[c].halfHour = Math.floor(((parseInt((getHour(formattedDate))*60))+(parseInt(getMinute(formattedDate))))/30) // the last denominator is minutes
-        }
+            data[c].halfHour = Math.floor(((parseInt((getHour(formattedDate))*60))+(parseInt(getMinute(formattedDate))))/30) // the last denominator is the increment (30)
+        }                                               //if increment changes so does i in our for loop below
 
-        //An Empty Container to Hold the Path
+        //An Empty Container to Hold the Points for our path
         var points = [];
-        //Set Up The Math for our Radial Graph
+        
+        //The Math for generating our Radial Graph, to be called later
         var radialAreaGenerator = d3.radialArea()
             .curve(d3.curveCatmullRomClosed)
-            .angle(function(d) {
-                return d.angle;
-            })
-            .innerRadius(function(d) {
-                return d.r0;
-            })
-            .outerRadius(function(d) {
-                return d.r1;
-            });
+            .angle(function(d) {return d.angle;})
+            .innerRadius(function(d) {return d.r0;})
+            .outerRadius(function(d) {return d.r1;});
 
-        //SCALES
+        //SCALE 
         var radialValueScale = d3.scaleLinear()
             .range([0,100])
 
-        // STEP 2 - WRANGLE DATA -----------------------------------------------------
         wrangleData();
+        // STEP 2 - WRANGLE DATA -----------------------------------------------------
+        
 
         function wrangleData(){
 
-            // CHECK THE DROPDOWN FOR A SELECTION
+            // CHECK THE DROPDOWN AND FILTER OUT THE CORRESPONDING DATA
             var dataset = data.filter(function(d){
-                if(userSelection.value == "all"){
-                    return d;
-                }
+                if(userSelection.value == "all"){return d;}
                 if(userSelection.value == "homicide"){
                     return d.OFFENSE_CODE > 110 && d.OFFENSE_CODE< 115;
                 }
@@ -132,16 +126,17 @@
                   .key(function(d) { return d.halfHour; })
                   .rollup(function(code) { return code.length})
                   .entries(dataset);
-
-                    //console.log("crimeTime");
-                    //console.log(crimeTime);
+; 
 
             // Sort data by time
             crimeTime.sort(function(a,b){
                 return a.key - b.key});
 
-
-            for(i=0;i<48;i++){
+            // We want 48 "keys" (24hours by 20 min) 0,1,2,etc...
+            // Loop through the dataset, compare i to the keys
+            // If a key is missing add it, and set the value to 0
+            
+            for(i=0;i<48;i++){//if we change the time increment change this too (48=30min, 96=15min, etc.)
                 if (crimeTime[i]){
                     if (+crimeTime[i].key !== i){
                         crimeTime.splice(i,0,{key:i,value:0});
@@ -150,9 +145,7 @@
                     crimeTime.splice(i,0,{key:i,value:0});
                 }
             }
-                    //console.log("crimeTime");
-                    //console.log(crimeTime);
-
+            
             //empty out our points array
             points = [];
 
@@ -161,25 +154,27 @@
             radialTimeMin = d3.min(crimeTime, function(d){return d.value});
             radialValueScale.domain([radialTimeMin,radialTimeMax]);
 
-                    //console.log(radialTimeMax + " : " +radialTimeMin);
+
             //generate the points
-            console.log("crimeTime.length = " + crimeTime.length);
+            //console.log("crimeTime.length = " + crimeTime.length);
             for (i=0;i<crimeTime.length;i++){
                 var timeCoordinate = {}
 
                 timeCoordinate.angle = Math.PI * (2*(i/crimeTime.length));
-                timeCoordinate.r0 = 110;
+                timeCoordinate.r0 = 110;//the hole in our donut, so to speak
                 timeCoordinate.r1 = 110 + radialValueScale(crimeTime[i].value);
-
+                
                 points.push(timeCoordinate);
             }
                     //console.log("wrangled");
 
             pathData = radialAreaGenerator(points);
 
-        } //end wrangleData
+        } //end wrangleData 
 
 
+        
+        
         var pathData = radialAreaGenerator(points);
 
         // DRAW RADIAL GRAPH (as a clip path for our gradient below)----------------
@@ -225,12 +220,12 @@
             .attr("r", 220)
             .attr("clip-path","url(#circleClip)")
             .style("fill", "url(#radial-gradient)");
-
+        
         // Axis
         var radialAxisData = ["12a","1a","2a","3a","4a","5a","6a","7a","8a","9a","10a","11a","12p","1p","2p","3p","4p","5p","6p","7p","8p","9p","10p","11p"];
-
+        
         svgTimeRadial.selectAll(".hour-label")
-            .data(radialAxisData)
+            .data(radialAxisData) 
             .enter()
             .append("text")
             .attr("class","hour")
@@ -260,15 +255,15 @@
             })
             .style("stroke","rgba(8, 8, 8, 0.4)")
             .style("stroke-width",1);
-
-
+            
+        
         // UPDATE TIME RADIAL --------------------------------------------------------
 
         function updateTimeRadial(){
             wrangleData();
             svgTimeRadial.selectAll("path#radialPath")
             .transition()
-            .duration(1500)
+            .duration(1000)
             .attr('d', pathData);
 
 
