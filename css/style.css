@@ -102,6 +102,13 @@ aside{
     border: 1px #213879 solid;
     font-size: .9em;
 }
+/* fixed dropdown/user control active and focus states (black) */
+.form-control, .form-control:active, .form-control:focus ,.form-control option{
+    color:white;
+    background-color:#080808;
+    border:1px #213879 solid;
+    font-size:.9em;
+}
 
 .instructions{
     font-size:.8em
@@ -165,6 +172,13 @@ aside{
 
 /* MJG Additions to Choropleth 12/1 */
 
+.intro{
+    width:88%;
+}
+
+#textChoropleth{
+    margin-left:30px
+}
 #vizChoropleth_top{  /* levels top of visual with text */
     margin-top:-50px
 }
@@ -183,7 +197,9 @@ aside{
     margin-left:35px
 }
 
-
+#vizChoropleth{
+    border-right:1px solid #222222;
+}
 /*************/
 /* Bar Chart */
 /*************/
@@ -197,18 +213,13 @@ aside{
     text-align:center;
 }
 
-/* fixed dropdown/user control active and focus states (black) */
-.form-control, .form-control:active, .form-control:focus ,.form-control option{
-    color:white;
-    background-color:#080808;
-    border:1px #213879 solid;
-    font-size:.9em;
-}
+
 
 /*Visual subtitle(that changes)*/
 #dataType{
     clear:left;
     float:left;
+    padding-left:15px;
     display:inline-block;
     width:100%
 }
@@ -220,17 +231,19 @@ aside{
 
 /* adds a line to the left */
 #barChartTitle{
-    border-left:1px grey solid;
+    border-left:1px #222222 solid;
     padding-left:30px
 }
 
 /* adds a line to the left */
 #barChartContainer{
-    border-left:1px grey solid;
+    border-left:1px #222222 solid;
 }
 
 .parenthetical{
     color:#b7b2b2;
+    float:left;
+    padding-left:15px;
     font-weight:100;
     font-size:.8em;
 }
@@ -242,7 +255,10 @@ aside{
     color:white;
     position:relative;
 }
-
+#textTimeOfDay{
+    padding-left:20px;
+    width:82%
+}
 #vizSmBarCharts .form-control{
     position:absolute;
     width:293px;
@@ -293,30 +309,26 @@ rect.handle{
 
 /* MJG Addition to Time Radial Chart (Coffee cup stain) */
 
-#radialTime{
-    padding-top:0;
-    margin-top:-20px;
-    padding-bottom:0;
-    margin-bottom:0;
+#sharedDropdown{
+    
+}
+#vizTimeOfDay{
+    padding-top:40px
 }
 
-#radialTimeControl{
-    width:auto;
-    margin-left:100px;
+#radialTime{
+    padding-top:0;
     margin-top:-40px;
-}
 
-#radialTime{
-    padding-top:0;
-    margin-top:-20px;
-    margin-left:20px;
     padding-bottom:0;
     margin-bottom:0;
 }
+#radialMonth{
+    margin-top:-3em;
+    margin-left:-5em
 
+}
 #radialTimeControl{
-    width:auto;
-    margin-left:160px;
     margin-top:-20px;
 }
 
@@ -335,8 +347,26 @@ rect.handle{
 }
 
 .radialTimeTitle{
-    margin-left:104px;
+    text-align:center;
+    margin:0 auto;
     margin-bottom:20px;
 }
+#sharedDropdown{
+    margin:0 auto;
+    margin-top:44px
+    
+}
 
-
+.frequencyText{
+    padding-top:0;
+    margin-top:-2em
+}
+#vizBubbleChart{
+    margin-top:-4em
+}
+#bubbleControls{
+    margin-top:-`em
+}
+#textTime{
+    padding:3em 0 0 4em;
+}
