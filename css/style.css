@@ -369,8 +369,14 @@ rect.handle{
 }
 
 #bubbleControls{
-    margin-top:-`em
+    margin-top:1em
 }
 #textTime{
     padding:3em 0 0 4em;
+}
+
+
+#districtControl.user-control-alt{
+    margin-right: 0px;
+    width:160px;
 }
