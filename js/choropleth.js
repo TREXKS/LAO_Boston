@@ -68,7 +68,7 @@ queue()
                 d.crimetype = "VANDALISM";
             }
         });
-        console.log(crimecsv);
+        //console.log(crimecsv);
 
         // Subset to exclude the external and unnamed districts
         crimecsv = crimecsv.filter(function(d){
@@ -140,7 +140,7 @@ queue()
 
             }; })
             .entries(crimecsv);
-        console.log(totalcrimes);
+        //console.log(totalcrimes);
 
         totalcrimes.forEach(function (d) {
             DatabyDistrict[d.key] = d;      // To be able to look up data by district
@@ -158,7 +158,7 @@ queue()
             if(d.key == "E13"){ d.value.areapop = 39314;  d.area = "Jamaica Plain"; }
             if(d.key == "E18"){ d.value.areapop = 37094;  d.area = "Hyde Park"; }
         });
-        console.log(DatabyDistrict);
+        //console.log(DatabyDistrict);
 
 
         // Initial map
@@ -322,11 +322,11 @@ function varsformap(){
 
     // Capture selection from combobox in a variable
     var whichyear = d3.select("#choroplethYear").property("value");
-    console.log(whichyear);
+    //console.log(whichyear);
     var whichtype = d3.select("#choroplethCrime").property("value");
-    console.log(whichtype);
+    //console.log(whichtype);
     var percap = d3.select("#choroplethLoD").property("value");
-    console.log(percap);
+    //console.log(percap);
 
     whichlod = percap;
 
@@ -380,8 +380,8 @@ function varsformap(){
     if (whichyear == "2019" && whichtype == "Sexual")   {whichvar = "sex2019";};
     if (whichyear == "2019" && whichtype == "Vandalism"){whichvar = "vand2019";};
 
-    console.log(whichvar);
-    console.log(whichlod);
+    //console.log(whichvar);
+    //console.log(whichlod);
 }
 
 
