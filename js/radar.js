@@ -67,18 +67,18 @@ function updateVisualization() {
 			};
 
 			var month = [
-			  {key: 1, month: "Jan.",},
-				{key: 2, month: "Feb.",},
-				{key: 3, month: "March",},
-				{key: 4, month: "April",},
+			  {key: 1, month: "Jan",},
+				{key: 2, month: "Feb",},
+				{key: 3, month: "Mar",},
+				{key: 4, month: "Apr",},
 				{key: 5, month: "May",},
 				{key: 6, month: "June",},
 				{key: 7, month: "July",},
-				{key: 8, month: "August",},
-				{key: 9, month: "Sept.",},
-				{key: 10, month: "Oct.",},
-				{key: 11, month: "Nov.",},
-				{key: 12, month: "Dec.",},
+				{key: 8, month: "Aug",},
+				{key: 9, month: "Sept",},
+				{key: 10, month: "Oct",},
+				{key: 11, month: "Nov",},
+				{key: 12, month: "Dec",},
 
 
 			];

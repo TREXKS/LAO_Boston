@@ -316,7 +316,7 @@
                     .attr("y",45)
                     .attr("text-anchor","end")
                     .attr("class", "smallLabel")
-                    .text(" pop. : "+ crimeByDistrictCleaned[i].population);
+                    .text(" Pop: "+ crimeByDistrictCleaned[i].population);
 
                 // draw the axis
                 svgBars.select("g#" + crimeByDistrictCleaned[i].district)

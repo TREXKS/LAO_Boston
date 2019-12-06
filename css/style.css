@@ -53,7 +53,6 @@ aside{
     min-height:8em;
 }
 
-
 /*************/
 /* Jumbotron */
 /*************/
@@ -172,9 +171,9 @@ aside{
 
 /* MJG Additions to Choropleth 12/1 */
 
-.intro{
-    width:88%;
-}
+/*.intro{
+    width:95%;
+}*/
 
 #textChoropleth{
     margin-left:30px
@@ -313,7 +312,7 @@ rect.handle{
     
 }
 #vizTimeOfDay{
-    padding-top:40px
+    padding-top:40px;
 }
 
 #radialTime{
@@ -325,9 +324,9 @@ rect.handle{
 }
 #radialMonth{
     margin-top:-3em;
-    margin-left:-5em
-
+    margin-left:-5em;
 }
+
 #radialTimeControl{
     margin-top:-20px;
 }
@@ -337,7 +336,7 @@ rect.handle{
 }
         
 .smallLabel{
-    fill:#414141;
+    fill: white;
     font-size:.8em;
 }
 
@@ -362,8 +361,13 @@ rect.handle{
     margin-top:-2em
 }
 #vizBubbleChart{
-    margin-top:-4em
+    margin-top:-4em;
 }
+
+#bubblepanel{
+    border-left:1px solid #222222;
+}
+
 #bubbleControls{
     margin-top:-`em
 }

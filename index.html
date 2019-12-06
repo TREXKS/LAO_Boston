@@ -28,10 +28,9 @@
 	</div>
 
 	<div class="row intro">
-		<h4>Visiting Boston?</h4>
-
-		<section class="textBlock" id="textOverview">
-			Are you a student, tourist, or newcomer to Boston? Law and Order: Boston's visualization gallery is here to help you explore all the information you need to keep yourself safe!  Browse real data and explore recent crime trends.<br> (June 2015 to November 2019)<br><br> As Boston residents ourselves, we hope our project will illuminate crime patterns and help keep others out of harm’s way.
+		<section class="textBlock">
+			<h4>Visiting Boston?</h4>
+			Are you a student, tourist, or newcomer to Boston? Law and Order: Boston's visualization gallery is here to help you explore all the information you need to keep yourself safe!  Browse real data and explore recent crime trends (June 2015 to November 2019). <br><br> As Boston residents ourselves, we hope our project will illuminate crime patterns and help keep others out of harm’s way.
 		</section>
 	</div>
 
@@ -103,13 +102,13 @@
 
 
 	<div class="row" id="barChartTitle">
-		<h4>Comparing Districts:</h4>
-		<p style="">Below we show the distribution of total crime across the 12 police districts of Boston.<br> Each chart shows the percentages of city-wide crime attributed to the district.<br><br>
-			However, the population of Boston is not distributed evenly, there's a huge difference between districts. When you account for this the graphs paint a different picture. Use the drop-down menu to switch between views to see how the crime rates for each vary from the city-wide average.
+		<h4>Comparing Districts</h4>
+		<p style="">Below we show the distribution of total crime across the 12 districts of Boston. Each chart shows the percentages of city-wide crime attributed to the district.<br><br>
+			However, the population of Boston is not distributed evenly; there's a huge difference between districts. When you account for this, the graphs paint a different picture. SELECT from the drop-down menu to switch between views to see how the crime rates for each vary from the city-wide average.
 		</p>
 		<div class="row">
 			<h5 id="dataType">Percent of Total Incidents Attributed to Each District</h5>
-			<span class="parenthetical"> (6/15/15 - 11/15/19) </span>
+			<!--<span class="parenthetical"> (6/15/15 - 11/15/19) </span> -->
 		</div>
 	</div>
 
@@ -123,11 +122,11 @@
 				</select>
 			</div>
 		</div>
-		<section class="textBlock" id="textTimeOfDay">
+		<p class="textBlock" id="textTimeOfDay">
 
-			From the initial view, you'd think that Dorchester and Roxbury had the highest crime rates. But once we account for population you see how these numbers have changed. Dorchester is actually below average for crime across the board, Roxbury is still above but nowhere near the level we see in Mattapan.
+			From the initial view, you'd think Dorchester and Roxbury had the highest crime rates. But once we account for population, you see how these numbers change. Dorchester is actually below average for crime across the board, while Roxbury is still above but nowhere near the level we see in Mattapan.
 			<br><br>
-		</section>
+		</p>
 	</div>
 
 	<div class="row">
@@ -135,11 +134,13 @@
 			<section>
 				<h4> Are You A Night Owl? Snowbird?</h4>
 
-				<strong>We can now see where the crimes are taking place, but when are they occuring?</strong><br>
-				Are some areas safer at night, in the morning, etc.? By interacting with the data above you can see how different crimes rise and fall throughout the city during the day. Drag your mouse over the timeline next to the drop-down to see how the numbers change.
+				<strong>We can now see where the crimes are taking place, but when are they occuring?</strong> Are some areas safer at night, in the morning, etc.? By interacting with the data you can see how different crimes rise and fall throughout the city during the day.
 				<br><br>
-				<strong>Investigate when crime is most likely to take place, by the time of day (left) and month of year (right). SELECT a type of crime from the dropdown to filter crimes.</strong><br>
-				Not suprising to see Robbery events happen late at night. What trends can you find?
+				<strong>DRAG your mouse over the timeline next to the drop-down in the bar chart visualization above to see how the numbers change.</strong>
+				<br><br>
+				<strong>Investigate when specific crimes are most likely to take place, by the time of day (left) and month of year (right) in the visualizations below. SELECT a type of crime from the dropdown to filter crimes.</strong>
+				<br><br>
+				<strong>Not surprising to see Robbery events happen late at night. What trends can you find? </strong>
 
 			</section>
 		</div>
@@ -185,7 +186,7 @@
 	<!-- BUBBLE CHART TEXT -->
 	<div class="row frequencyText">
 
-		<section class="textBlock" id="textTime">
+		<section class="textBlock">
 			<h4> A Closer Look</h4>
 			<p>
 				What specific kinds of crime are occurring? Assaults are the most common crime in many districts, followed by vandalism. Robbery and burglary counts tend to reflect how residential or commercial a district is.
@@ -197,7 +198,7 @@
 
 	<!-- Bubble Chart -->
 	<div class="row">
-		<div class="col-lg-7 left">
+		<div class="col-lg-7 left" id="bubblepanel">
 			<div class="visualization bubbles" id="vizBubbleChart">
 			</div>
 
@@ -232,7 +233,7 @@
 
 		</div>
 		<div class="col-lg-5 right">
-			<section class="textBlock" id="textTime">
+			<section class="textBlock">
 				<p>
 					SELECT a neighborhood and year from the dropdown to compare quantities of each crime type. The bubbles will shift when one category overtakes another.
 					<br><br>
@@ -246,11 +247,11 @@
 
 	<!-- CONCLUSION -->
 	<div class="row">
-		<section class="textBlock" id="textTime">
+		<section class="textBlock">
 			<h4> Conclusion</h4>
 			Crimes will take place in any major city, so it’s always important to exercise caution and be aware of your surroundings. If you are traveling, studying, or looking for a new place to live, understanding crime trends can help keep you safe; we hope our site has helped you feel more knowledgeable as you prepare to embark to Boston!
 
-			DON'T FORGET: If you see a crime in your neighborhood call your local police department here (https://bpdnews.com/districts)
+			<br><br>AND DON'T FORGET: If you see a crime in your neighborhood call your local police department <a href="https://bpdnews.com/districts"> here </a>.
 
 		</section>
 	</div>
