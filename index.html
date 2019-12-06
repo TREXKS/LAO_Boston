@@ -31,18 +31,16 @@
             <h4>Visiting Boston?</h4>
 
             <section class="textBlock" id="textOverview">
-							Are you a student, tourist, or newcomer to Boston? Law and Order: Boston's visualization gallery is here to help you explore all the information you need to keep yourself safe!  Browse real data and explore recent crime trends (June 2015 to November 2019). As Boston residents ourselves, we hope our project will illuminate crime patterns and help keep others out of harm’s way.
-
+				Are you a student, tourist, or newcomer to Boston? Law and Order: Boston's visualization gallery is here to help you explore all the information you need to keep yourself safe!  Browse real data and explore recent crime trends.<br> (June 2015 to November 2019)<br><br> As Boston residents ourselves, we hope our project will illuminate crime patterns and help keep others out of harm’s way.
             </section>
         </div>
 
 
 
         <!-- CHOROPLETH MAP  -->
-				<div class="row">
+        <div class="row">
 
-    </div>
-
+        </div>
 
 
 
@@ -52,11 +50,9 @@
                 <section class="textBlock" id="textChoropleth">
                     <h4>Where Do Crimes Occur?</h4>
                     <p>Certain crimes, such as homicide, happen predominantly in only a couple neighborhoods. Others, like burglary, are distributed pretty evenly throughout Boston. The bottom line is that Boston is a safe city, but in any city, it’s necessary to exercise caution.
-
-                        <br><br>
-												The map to the right is colored by the number of crimes in each Boston district. SELECT a year and type of crime from the dropdowns to investigate the crimes by district (and to compare total counts versus per capita rates). HOVER over a district to display the number of specified crimes for specified years.
-
-                        <br><br>
+                    <br><br>
+				    The map to the right is colored by the number of crimes in each Boston district. SELECT a year and type of crime from the dropdowns to investigate the crimes by district (and to compare total counts versus per capita rates). HOVER over a district to display the number of specified crimes for specified years.
+                    <br><br>
                     </p>
                 </section>
 
@@ -97,8 +93,7 @@
 	                        </select>
 	                    </div>
 	                </div>
-
-	        </div>
+                </div>
             </div>
         </div>
 
@@ -106,13 +101,19 @@
 
         <!-- TIME OF DAY Small Multiples -->
 
-        <br><br><br>
+
         <div class="row" id="barChartTitle">
-            <h4>Comparing Districts<span class="parenthetical"> (6/15/15 - 11/15/19) </span>:</h4>
-            <h5 id="dataType">Percent of Total Incidents Attributed to Each District</h5>
+            <h4>Comparing Districts:</h4>
+            <p style="">Below we show the distribution of total crime across the 12 police districts of Boston.<br> Each chart shows the percentages of city-wide crime attributed to the district.<br><br>
+            However, the population of Boston is not distributed evenly, there's a huge difference between districts. When you account for this the graphs paint a different picture. Use the drop-down menu to switch between views to see how the crime rates for each vary from the city-wide average.
+            </p>
+            <div class="row">
+                <h5 id="dataType">Percent of Total Incidents Attributed to Each District</h5>
+                <span class="parenthetical"> (6/15/15 - 11/15/19) </span>
+            </div>
         </div>
-				<p style="">The bar charts below compare districts in terms of percent of citywide incidents and per capita variation from the average number of incidents, both by type of crime. SELECT a measure to update the bars. Use the BRUSH to filter by times of day. HOVER over a bar to view the number of incidents.
-				</p>
+
+				
         <div class="row" id="barChartContainer">
             <div class="visualization smBarCharts" id="vizSmBarCharts">
                 <div class="user-control" >
@@ -122,77 +123,62 @@
                     </select>
                 </div>
             </div>
-
-
+            <section class="textBlock" id="textTimeOfDay">
+										
+				From the initial view, you'd think that Dorchester and Roxbury had the highest crime rates. But once we account for population you see how these numbers have changed. Dorchester is actually below average for crime across the board, Roxbury is still above but nowhere near the level we see in Mattapan.
+				<br><br>
+            </section>
         </div>
 
+        <div class="row">
+            <div class="col-lg-12 left">
+				<section>
+				<h4> Are You A Night Owl? Snowbird?</h4>
+				
+				<strong>We can now see where the crimes are taking place, but when are they occuring?</strong><br>
+				Are some areas safer at night, in the morning, etc.? By interacting with the data above you can see how different crimes rise and fall throughout the city during the day. Drag your mouse over the timeline next to the drop-down to see how the numbers change.
+				<br><br>
+				<strong>Investigate when crime is most likely to take place, by the time of day (left) and month of year (right). SELECT a type of crime from the dropdown to filter crimes.</strong><br>
+				Not suprising to see Robbery events happen late at night. What trends can you find?
 
+				</section>
+            </div>
+        </div>
+        <div class="row">
 
-				<div class="row">
-						<div class="col-lg-12 left">
-								 <section class="textBlock" id="textTimeOfDay">
-										The<strong> City of Boston</strong> is broken up 12 police districts. Each has its own set of challenges for police to face. In the above visual we display the 6 major types of crime and break out the reports per district.
-										<br><br>
-										From the initial view, you'd think that Dorchester and Roxbury have the highest crime rate. But, this view is only showing you the total percentage of city-wide crime. It does not account for population. Switch the view using the drop-down and see how the values change. Notice Dorchester, which previously looked like a high-crime area, is now below average for every type of crime shown.
-										<br><br>
-										<h4> Are You A Night Owl? Snowbird?</h4>
-										 <h6>Wrong Place at the Wrong Time</h6>
-										 <strong>We can now see where the crimes are taking place, but when are they occuring?</strong><br>
-										 Are some areas safer at night, in the morning, etc.? By interacting with the data above you can see how different crimes rise and fall throughout the city during the day. Drag your mouse over the timeline next to the drop-down to see how the numbers change.
-										 <br><br>
-									 	 <strong>Investigate when crime is most likely to take place, by the time of day (left) and month of year (right). SELECT a type of crime from the dropdown to filter crimes.</strong><br>
-										 Not suprising to see Robbery events happen late at night. What trends can you find?
-
-								</section>
-								<br><br><hr><br>
-						</div>
-
+            <div class="col-lg-1 left" ></div>
+            <div class="col-lg-4 left">
+				<div class="row" id="radialTimeTitle">
+				    <h5 class="radialTimeTitle" s>Time of Day</h5>
+                </div>
+                <div class="row" id="radialTime">
+                    <div class="visualization radialTime" id="vizTimeOfDay">
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-2 middle">       
+                <div class="user-control-middle" id="sharedDropdown" >
+                    <select id="radialTimeControl" class="form-control">
+                        <option value="all">All Crime</option>
+                        <option value="homicide">Homicide</option>
+                        <option value="assault">Assault</option>
+                        <option value="sexualAssault">Sexual Offense</option>
+                        <option value="robbery">Robbery</option>
+                        <option value="burglary">Burglary</option>
+                        <option value="vandalism">Vandalism</option>
+                    </select>
+                </div>
+            </div>
+            <div class="col-lg-4 right" >
+                    <div class="row" id="radialTimeTitle">
+                        <h5 class="radialTimeTitle">Month of Year</h5>
+				    </div>
+				<div class="row" id="radialMonth">
+				    <div class="radarChart"></div>
 				</div>
-				<div class="row">
-						<div class="user-control" style="margin-left: 29%" >
-								<select id="radialTimeControl" class="form-control">
-										<option value="all">All Crime</option>
-										<option value="homicide">Homicide</option>
-										<option value="assault">Assault</option>
-										<option value="sexualAssault">Sexual Offense</option>
-										<option value="robbery">Robbery</option>
-										<option value="burglary">Burglary</option>
-										<option value="vandalism">Vandalism</option>
-								</select>
-						</div>
-				</div>
-				<div class="row">
-					<div class="col-lg-6 left">
-							<div class="row" id="radialTimeTitle">
-									<h5 class="radialTimeTitle" style="padding-bottom: 8%; margin-left: 30%;">Time of Day</h5>
-							</div>
-							 <div class="row" id="radialTime">
-									<div class="visualization radialTime" id="vizTimeOfDay">
-									</div>
-							</div>
-
-					</div>
-
-					<div class="col-lg-5 left" style="margin-left: 5%;">
-							<div class="row" id="radialTimeTitle">
-									<h5 class="radialTimeTitle" style="margin-left: 45%;">Month of Year</h5>
-							</div>
-							 <div class="row" id="radialTime">
-								 <div class="radarChart"></div>
-
-							</div>
-
-					</div>
-
-
-
-
-				</div>
-
-
-
-
-
+            </div>
+            <div class="col-lg-1 right" ></div>
+        </div>
         <!-- FREQUENCY - RADIAL Visualization -->
 
 
@@ -215,11 +201,11 @@
 
         <!-- Bubble Chart -->
         <div class="row">
-					<div class="col-lg-8 left">
+					<div class="col-lg-7 left">
 	            <div class="visualization bubbles" id="vizBubbleChart">
 	            </div>
 
-	            <div class="row">
+	            <div class="row" id="bubbleControls">
 	                <div class="user-control-alt" id="districtControl">
 	                    <select id="bubbleDistricts" class="form-control bubblechange" >
 	                        <option value="A1">Downtown</option>
@@ -249,7 +235,7 @@
 	            </div>
 
 	        </div>
-            <div class="col-lg-4 right">
+            <div class="col-lg-5 right">
                  <section class="textBlock" id="textTime">
 					 <p>
 						 SELECT a neighborhood and year from the dropdown to compare quantities of each crime type. The bubbles
