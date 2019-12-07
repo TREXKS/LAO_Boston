@@ -253,7 +253,7 @@
             .attr("y2",function(d,i){
                 return -222*Math.cos((i*15)*.0174532925)+190
             })
-            .style("stroke","rgba(8, 8, 8, 0.4)")
+            .style("stroke","rgba(18, 18, 18, 0.6)")
             .style("stroke-width",1);
             
         
