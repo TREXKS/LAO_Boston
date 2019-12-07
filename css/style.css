@@ -1,15 +1,142 @@
+/*********/
+/* Fonts */
+/*********/
 
 @font-face {
     font-family: 'Roboto-Regular';
     src: url(../fonts/Roboto/Roboto-Regular.ttf) format('truetype');
 }
+
 @font-face {
     font-family: 'Montserrat-Regular';
     src: url(../fonts/Montserrat/Montserrat-Regular.ttf) format('truetype');
 }
+
+
+/********************/
+/* Body and headers */
+/********************/
+
 body{
     font-family:'Montserrat-Regular';
+    background-color:#121212;
+    color:antiquewhite
 }
+
+h1, h2, h3, h4, h5, h6{
+    color:white;
+}
+
+h4,h6,h1{
+    font-family:'Roboto-Regular';
+}
+
+h1,h4{
+    font-weight:900;
+}
+
+.row{
+    margin-top:2em
+}
+
+aside{
+    font-size:.9em;
+    color:gray;
+    float:right;
+}
+
+.left{
+    padding-left:0
+}
+
+.footer{
+    min-height:8em;
+}
+
+/*************/
+/* Jumbotron */
+/*************/
+
+.jumbotron-fluid{
+    width:100%;
+    color:white;
+    text-shadow: black 4px 4px 4px;
+}
+
+.jumbotron {
+    background-image: url("../img/skyline.jpg");
+    background-size: cover;
+    position:relative;
+}
+
+.photoCredit{
+    color:#5e5e96;
+    position:absolute;
+    top:10px;
+    text-align:right;
+    right:10px;
+    font-size:.7em;
+    text-shadow:none;
+}
+
+
+/****************************/
+/* Visualizations (General) */
+/****************************/
+
+.visualization{
+    min-height:200px;
+    width:100%
+}
+
+.user-control{
+    max-width:30%;
+    float:left;
+    padding:0 .5em;
+}
+
+.form-control {
+    color: white;
+    background-color: #080808;
+    border: 1px #213879 solid;
+    font-size: .9em;
+}
+/* fixed dropdown/user control active and focus states (black) */
+.form-control, .form-control:active, .form-control:focus ,.form-control option{
+    color:white;
+    background-color:#080808;
+    border:1px #213879 solid;
+    font-size:.9em;
+}
+
+.instructions{
+    font-size:.8em
+}
+
+.smImage{
+    object-fit:cover;
+    width:100%;
+}
+
+#districtHolder1,#districtHolder2{
+    display:inline-block;
+    width:100%
+}
+
+#districtControl{
+    width:50%;
+    margin:0 auto;
+    margin-bottom:1.5em
+}
+
+#textTime{
+    padding-right:7em;
+}
+
+
+/************/
+/* Tooltips */
+/************/
 
 .tooltip-title {
   display: block;
@@ -26,62 +153,236 @@ body{
   font-size:10px;
 }
 
-
-
-.jumbotron-fluid{
-    width:100%;
-    color:white;
+.maptooltip {
+    line-height: 1;
+    font-weight: bold;
+    padding: 12px;
+    background: #fff;
+    color: black;
+    border-radius: 2px;
+    text-align: center;
 }
 
-.jumbotron {
-  background-image: url("../img/placeholder.jpg");
-  background-size: cover;
+
+
+/**************/
+/* Choropleth */
+/**************/
+
+/* MJG Additions to Choropleth 12/1 */
+
+/*.intro{
+    width:95%;
+}*/
+
+#textChoropleth{
+    margin-left:30px
+}
+#vizChoropleth_top{  /* levels top of visual with text */
+    margin-top:-50px
 }
 
-.row{
-    margin-top:2em
+#chorlplethControls{ /* moves controls to bottom right */
+    margin-top:-80px;
+    margin-left:280px;
 }
 
-.visualization{
-    min-height:200px;
-    border: 1px red dashed;
-    margin:-px;
+#choroplethCrime{ /* size the wider dropdown to fit text */
+    width:160px;
+    margin-right:
+}
+
+#choroplethLoD{ /* pushes percapita over a bit */
+    margin-left:35px
+}
+
+#vizChoropleth{
+    border-right:1px solid #222222;
+}
+/*************/
+/* Bar Chart */
+/*************/
+
+/* MJG Addition to Bar Chart 12/1 */
+
+/* individual bar % text style */
+#vizSmBarCharts .rowGroup text.barLabels{
+    font-size:.8em;
+    fill:#717171;
+    text-align:center;
+}
+
+
+
+/*Visual subtitle(that changes)*/
+#dataType{
+    clear:left;
+    float:left;
+    padding-left:15px;
+    display:inline-block;
     width:100%
 }
 
-.user-control{
-    max-width:30%;
+/*pulls vis closer to title. */
+#barChartContainer{
+    margin-top:0;
+}
+
+/* adds a line to the left */
+#barChartTitle{
+    border-left:1px #222222 solid;
+    padding-left:30px
+}
+
+/* adds a line to the left */
+#barChartContainer{
+    border-left:1px #222222 solid;
+}
+
+.parenthetical{
+    color:#b7b2b2;
     float:left;
-    padding:0 .5em;
-}
-.smImage{
-    object-fit:cover;
-        width:100%;
+    padding-left:15px;
+    font-weight:100;
+    font-size:.8em;
 }
 
-h4,h6,h1{
+/* BARS SPECIFIC STUFF */
+#vizSmBarCharts{
+    border:none;
+    background-color:#121212;
+    color:white;
+    position:relative;
+}
+#textTimeOfDay{
+    padding-left:20px;
+    width:82%
+}
+#vizSmBarCharts .form-control{
+    position:absolute;
+    width:293px;
+    bottom:52px;
+    left:20px
+}
+
+#vizSmBarCharts .rowGroup text {
+    fill:whitesmoke;
+}
+
+#vizSmBarCharts .rowGroup .tick text {
+    fill:#b2b2b2;
+}
+
+.tick line{
+    display:none
+}
+
+.brushAxis{
     font-family:'Roboto-Regular';
+    font-size:.8em;
+    font-weight:100;
 }
 
-h1,h4{
-    font-weight:900;
+.brush rect.overlay{
+    fill:black;
+    stroke:#111111;
 }
 
-#districtHolder1,#districtHolder2{
-    display:inline-block;
-    width:100% 
+.brushAxis .tick line{
+    display:block;
+    stroke:#191919;
 }
 
-.footer{
-    min-height:8em;
+.brushAxis .domain{
+    display:none
 }
-#districtControl{
-    width:50%;
-    margin:0 auto;
-    margin-bottom:1.5em
+
+rect.handle{
+    stroke:aqua
+}
+
+
+/***************************/
+/* Coffee Cup Radial Chart */
+/***************************/
+
+/* MJG Addition to Time Radial Chart (Coffee cup stain) */
+
+#sharedDropdown{
+    
+}
+#vizTimeOfDay{
+    padding-top:40px;
+}
+
+#radialTime{
+    padding-top:0;
+    margin-top:-40px;
+
+    padding-bottom:0;
+    margin-bottom:0;
+}
+#radialMonth{
+    margin-top:-3em;
+    margin-left:-5em;
+}
+
+#radialTimeControl{
+    margin-top:-20px;
+}
+
+#textTimeOfDay{
+    margin-right:80
+}
         
+.smallLabel{
+    fill: white;
+    font-size:.8em;
+}
+
+.hour{
+    fill:#838383;
+    font-size:.8em;
+}
+
+.radialTimeTitle{
+    text-align:center;
+    margin:0 auto;
+    margin-bottom:20px;
+}
+#sharedDropdown{
+    margin:0 auto;
+    margin-top:44px
     
 }
-body{
-    
+
+.frequencyText{
+    padding-top:0;
+    margin-top:-2em
+}
+#vizBubbleChart{
+    margin-top:-4em;
+}
+
+#bubblepanel{
+    border-left:1px solid #222222;
+}
+
+#bubbleControls{
+    margin-top:1em
+}
+#textTime{
+    padding:3em 0 0 4em;
+}
+
+
+#districtControl.user-control-alt{
+    margin-right: 0px;
+    width:160px;
+}
+
+.footer {
+    background-size: cover;
+    position:relative;
+    background-color: #202020;
 }
