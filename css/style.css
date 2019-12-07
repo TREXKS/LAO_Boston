@@ -380,3 +380,9 @@ rect.handle{
     margin-right: 0px;
     width:160px;
 }
+
+.footer {
+    background-size: cover;
+    position:relative;
+    background-color: #202020;
+}
